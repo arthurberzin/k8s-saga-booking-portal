@@ -2,10 +2,8 @@
 The main goal of the project is to practice and review techniques and skills that have already been learned.
 
 
-Inline-style: 
-![alt text](https://github.com/arthurberzin/k8s-saga-booking-portal/schema.png "Booking application base schema")
+![alt text](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/schema.png "Booking application base schema")
 
-[logo]:  "Logo Title Text 2"
 
 ## Build Docker Images
 
