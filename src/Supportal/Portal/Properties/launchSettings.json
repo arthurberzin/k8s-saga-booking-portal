@@ -7,7 +7,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.SpaProxy"
       },
-      "applicationUrl": "https://localhost:8060;http://localhost:8060"
+      "applicationUrl": "https://localhost:8060;http://localhost:8066"
     },
     "IIS Express": {
       "commandName": "IISExpress",
