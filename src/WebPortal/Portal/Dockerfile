@@ -16,8 +16,12 @@ COPY . .
 WORKDIR "/src/src/WebPortal/Portal"
 RUN dotnet build "WebPortal.csproj" -c Release -o /app/build
 
+RUN apt-get update && apt-get install -y curl gnupg
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
+RUN apt-get update && apt-get install -y nodejs
+
 FROM build AS publish
-RUN dotnet publish "WebPortal.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "WebPortal.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
