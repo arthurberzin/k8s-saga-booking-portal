@@ -7,7 +7,7 @@ The main goal of the project is to practice and review techniques and skills tha
 
 ## Tools Set
 
-![alt text](https://serilog.net/favicon.png "Serilog")  [Serilog](https://serilog.net/)
+- [Serilog](https://serilog.net/)
 
 
 ## Build Docker Images
