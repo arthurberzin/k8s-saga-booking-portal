@@ -64,12 +64,12 @@ docker run -p 8080:80 -d <docker hub id>/bookingapi
 docker run -p 8080:80 -d <docker hub id>/aggregatorgapi
 ```
 
-#### Hotel API 
+#### Hotel Service 
 ```powershell
 docker run -p 8080:80 -d <docker hub id>/hotelapi
 ```
 
-#### Car Rent API  
+#### Car Rent Service  
 ```powershell
 docker run -p 8080:80 -d <docker hub id>/carrentapi
 ```
