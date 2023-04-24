@@ -50,35 +50,35 @@ docker build -f src\AirlineService\API\Dockerfile -t <docker hub id>/airlineapi 
 
 #### Booking Portal
 ```powershell
-docker run -p 8080:80 -d <docker hub id>/webportal
+docker run -p 8070:80 -d <docker hub id>/webportal
 ```
 
 #### Supportal
 ```powershell
-docker run -p 8080:80 -d <docker hub id>/supportal
+docker run -p 8060:80 -d <docker hub id>/supportal
 ```
 
 #### Booking Service 
 ```powershell
-docker run -p 8080:80 -d <docker hub id>/bookingapi
+docker run -p 8050:80 -d <docker hub id>/bookingapi
 ```
 
 #### Aggregator Service 
 ```powershell
-docker run -p 8080:80 -d <docker hub id>/aggregatorgapi
+docker run -p 8040:80 -d <docker hub id>/aggregatorgapi
 ```
 
 #### Hotel Service 
 ```powershell
-docker run -p 8080:80 -d <docker hub id>/hotelapi
+docker run -p 8030:80 -d <docker hub id>/hotelapi
 ```
 
 #### Car Rent Service  
 ```powershell
-docker run -p 8080:80 -d <docker hub id>/carrentapi
+docker run -p 8020:80 -d <docker hub id>/carrentapi
 ```
 
 #### Airline Service
 ```powershell
-docker run -p 8080:80 -d <docker hub id>/airlineapi
+docker run -p 8010:80 -d <docker hub id>/airlineapi
 ```

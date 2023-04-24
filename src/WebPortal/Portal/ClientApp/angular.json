@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "WebPortal"
+  "defaultProject": "WebPortal",
+  "cli": {
+    "analytics": "ae64f3bc-a430-467c-832d-79bc1919273c"
+  }
 }

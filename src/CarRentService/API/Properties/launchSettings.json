@@ -8,7 +8,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "http://localhost:5297"
+      "applicationUrl": "http://localhost:8020"
     },
     "https": {
       "commandName": "Project",
@@ -18,7 +18,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "https://localhost:7246;http://localhost:5297"
+      "applicationUrl": "https://localhost:8020;http://localhost:8020"
     },
     "IIS Express": {
       "commandName": "IISExpress",
@@ -32,7 +32,8 @@
       "commandName": "Docker",
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/weatherforecast",
-      "publishAllPorts": true,
+      "httpPort": 8020,
+      "sslPort": 8020,
       "useSSL": true
     }
   },

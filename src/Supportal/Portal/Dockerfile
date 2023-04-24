@@ -16,8 +16,10 @@ COPY . .
 WORKDIR "/src/src/Supportal/Portal"
 RUN dotnet build "Supportal.csproj" -c Release -o /app/build
 
-RUN apt-get update && apt-get install -y curl gnupg
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
+RUN apt-get update
+RUN apt-get install -y curl
+RUN apt-get install -y libpng-dev libjpeg-dev gnupg libxi6 build-essential libgl1-mesa-glx
+RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash -
 RUN apt-get update && apt-get install -y nodejs
 
 FROM build AS publish
