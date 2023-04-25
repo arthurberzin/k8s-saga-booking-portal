@@ -16,9 +16,15 @@ The main goal of the project is to practice and review techniques and skills tha
 ```powershell
 docker build -f src\WebPortal\Portal\Dockerfile -t <docker hub id>/webportal .
 ```
+
 #### Supportal 
 ```powershell
  docker build -f src\Supportal\Portal\Dockerfile -t <docker hub id>/supportal .
+```
+
+#### RabbitMQ
+```powershell
+docker pull rabbitmq
 ```
 
 #### Booking Service 
@@ -53,13 +59,19 @@ docker build -f src\AirlineService\API\Dockerfile -t <docker hub id>/airlineapi 
 
 #### Booking Portal
 ```powershell
-docker run -p 8070:80 -d <docker hub id>/webportal
+docker run -p 8080:80 -d <docker hub id>/webportal
 ```
 
 #### Supportal
 ```powershell
-docker run -p 8060:80 -d <docker hub id>/supportal
+docker run -p 8070:80 -d <docker hub id>/supportal
 ```
+
+#### RabbitMQ
+```powershell
+docker run -d --hostname my-rabbit --name some-rabbit -p 8660:15672 -p 8060:5672 rabbitmq:3-management
+```
+> RabbitMQ portal [http://localhost:8660](http://localhost:8660) default credentials of guest/guest.
 
 #### Booking Service 
 ```powershell

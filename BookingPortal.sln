@@ -7,8 +7,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.dockerignore = .dockerignore
 		.gitignore = .gitignore
+		BuildAllDockerImages.bat = BuildAllDockerImages.bat
 		LICENSE = LICENSE
+		PushToHubAllDockerImages.bat = PushToHubAllDockerImages.bat
 		README.md = README.md
+		RemoveAllDockerImages.bat = RemoveAllDockerImages.bat
+		RunAllDockerImages.bat = RunAllDockerImages.bat
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{849484D8-756F-4ABA-96B8-569F2FBD334F}"
@@ -23,7 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AggregatorService", "Aggreg
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aggregator.API", "src\AggregatorService\API\Aggregator.API.csproj", "{339FA6B7-3566-4ABA-9D55-6B8516B328FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aggregator.Application", "src\AggregatorService\AggregatorApplication\Aggregator.Application.csproj", "{A26CFAEA-D29C-477A-806D-6017EB1D0391}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aggregator.Application", "src\AggregatorService\AggregatorApplication\Aggregator.Application.csproj", "{A26CFAEA-D29C-477A-806D-6017EB1D0391}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AirlineService", "AirlineService", "{285617B1-47FC-4011-AAF2-4EB28551ECE3}"
 EndProject
@@ -35,45 +39,45 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BookingService", "BookingSe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Booking.API", "src\BookingService\API\Booking.API.csproj", "{4E4840F4-C3C7-4A1B-BA7D-1CD73D6D4528}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booking.Application", "src\BookingService\BookingApplication\Booking.Application.csproj", "{69B69056-1E6D-48DE-BC01-55BE7BCDD618}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Booking.Application", "src\BookingService\BookingApplication\Booking.Application.csproj", "{69B69056-1E6D-48DE-BC01-55BE7BCDD618}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booking.Infrastructure", "src\BookingService\BookingInfrastructure\Booking.Infrastructure.csproj", "{EECCB93A-C3F0-4507-980E-33D64EA03F56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Booking.Infrastructure", "src\BookingService\BookingInfrastructure\Booking.Infrastructure.csproj", "{EECCB93A-C3F0-4507-980E-33D64EA03F56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booking.Models", "src\BookingService\BookingModels\Booking.Models.csproj", "{A63B1C81-03FA-4CB4-831E-95E48CB33E31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Booking.Models", "src\BookingService\BookingModels\Booking.Models.csproj", "{A63B1C81-03FA-4CB4-831E-95E48CB33E31}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CarRentService", "CarRentService", "{3FB9C0E3-E9A6-4778-998C-6AC640F2A742}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRent.API", "src\CarRentService\API\CarRent.API.csproj", "{BED5D1B0-D328-4A34-845F-AA3F70FCACC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRent.Application", "src\CarRentService\CarRentApplication\CarRent.Application.csproj", "{94910398-7860-4B1D-A22F-FE43211E299B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRent.Application", "src\CarRentService\CarRentApplication\CarRent.Application.csproj", "{94910398-7860-4B1D-A22F-FE43211E299B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aggregator.Models", "src\AggregatorService\AggregatorModels\Aggregator.Models.csproj", "{074AF853-7B15-4E3B-AEC8-B469FBA9F6A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aggregator.Models", "src\AggregatorService\AggregatorModels\Aggregator.Models.csproj", "{074AF853-7B15-4E3B-AEC8-B469FBA9F6A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Airline.Models", "src\AirlineService\AirlineModels\Airline.Models.csproj", "{9B4FBF8A-9583-49CA-8380-07AD59A505C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Airline.Models", "src\AirlineService\AirlineModels\Airline.Models.csproj", "{9B4FBF8A-9583-49CA-8380-07AD59A505C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRent.Models", "src\CarRentService\CarRentModels\CarRent.Models.csproj", "{F2F359DC-4C92-4EB5-900F-F2C763C182CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRent.Models", "src\CarRentService\CarRentModels\CarRent.Models.csproj", "{F2F359DC-4C92-4EB5-900F-F2C763C182CD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HotelService", "HotelService", "{1907E952-4ECE-47DE-8917-63ECFA788E67}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hotel.API", "src\HotelService\API\Hotel.API.csproj", "{4E978332-F855-4772-AABD-92AF8807D547}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.Application", "src\HotelService\HotelApplication\Hotel.Application.csproj", "{0D329DE1-4A3B-4988-9EBA-809114218986}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hotel.Application", "src\HotelService\HotelApplication\Hotel.Application.csproj", "{0D329DE1-4A3B-4988-9EBA-809114218986}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.Models", "src\HotelService\HotelModels\Hotel.Models.csproj", "{C17D645B-D04F-4A3A-92A8-7EECA6236A15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hotel.Models", "src\HotelService\HotelModels\Hotel.Models.csproj", "{C17D645B-D04F-4A3A-92A8-7EECA6236A15}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Supportal", "Supportal", "{ABD40A50-9F1A-47F3-9E0C-85174252DD71}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Supportal", "src\Supportal\Portal\Supportal.csproj", "{D766C821-2C55-45DD-8763-37B78DBF5A45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supportal.Application", "src\Supportal\SupportalApplication\Supportal.Application.csproj", "{BF38CCDD-6EA6-4AF2-9051-06864F8368D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Supportal.Application", "src\Supportal\SupportalApplication\Supportal.Application.csproj", "{BF38CCDD-6EA6-4AF2-9051-06864F8368D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supportal.Models", "src\Supportal\SupportalModels\Supportal.Models.csproj", "{723D7C69-5389-437A-89C3-B43269216E75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Supportal.Models", "src\Supportal\SupportalModels\Supportal.Models.csproj", "{723D7C69-5389-437A-89C3-B43269216E75}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebPortal", "WebPortal", "{C7B1DE30-A63D-46C1-B06E-6EEA6789ECDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPortal.Application", "src\WebPortal\WebPortalApplication\WebPortal.Application.csproj", "{A848D6F7-1986-432A-BBD2-D6D02230F260}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebPortal.Application", "src\WebPortal\WebPortalApplication\WebPortal.Application.csproj", "{A848D6F7-1986-432A-BBD2-D6D02230F260}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPortal.Models", "src\WebPortal\WebPortalModels\WebPortal.Models.csproj", "{69F8592E-713F-4557-96BF-B7682ED737F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebPortal.Models", "src\WebPortal\WebPortalModels\WebPortal.Models.csproj", "{69F8592E-713F-4557-96BF-B7682ED737F5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebPortal", "src\WebPortal\Portal\WebPortal.csproj", "{C4D8DDE0-9181-456A-B839-C25D8C8E78C6}"
 EndProject
