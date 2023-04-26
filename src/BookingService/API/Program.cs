@@ -1,3 +1,4 @@
+using Core.Common;
 using Serilog;
 using Serilog.Formatting.Compact;
 
@@ -17,10 +18,15 @@ namespace Booking.API
                 config.Enrich.FromLogContext()
                 .Enrich.WithMachineName()
                 .WriteTo.Console()
-                .WriteTo.File(new CompactJsonFormatter(), "logs/log.json", rollingInterval: RollingInterval.Day, retainedFileCountLimit: 5)
-                .Enrich.WithProperty("Enviroment", context.HostingEnvironment.EnvironmentName)
+                .WriteTo.File(new CompactJsonFormatter(), "logs/log.json", rollingInterval: RollingInterval.Day,
+                    retainedFileCountLimit: 5)
+                .Enrich.WithProperty("Environment", context.HostingEnvironment.EnvironmentName)
                 .ReadFrom.Configuration(context.Configuration);
             });
+
+            builder.Services.AddHealthChecks();
+                //.AddDbContextCheck<Context>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -29,6 +35,7 @@ namespace Booking.API
 
             app.UseAuthorization();
 
+            app.UseCustomHealthChecks();
 
             app.MapControllers();
 

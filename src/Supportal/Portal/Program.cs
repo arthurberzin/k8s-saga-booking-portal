@@ -1,3 +1,4 @@
+using Core.Common;
 using Serilog;
 using Serilog.Formatting.Compact;
 
@@ -11,10 +12,14 @@ builder.Host.UseSerilog((context, config) =>
     config.Enrich.FromLogContext()
     .Enrich.WithMachineName()
     .WriteTo.Console()
-    .WriteTo.File(new CompactJsonFormatter(), "logs/log.json", rollingInterval: RollingInterval.Day, retainedFileCountLimit: 5)
-    .Enrich.WithProperty("Enviroment", context.HostingEnvironment.EnvironmentName)
+    .WriteTo.File(new CompactJsonFormatter(), "logs/log.json", rollingInterval: RollingInterval.Day,
+        retainedFileCountLimit: 5)
+    .Enrich.WithProperty("Environment", context.HostingEnvironment.EnvironmentName)
     .ReadFrom.Configuration(context.Configuration);
 });
+
+builder.Services.AddHealthChecks();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -28,6 +33,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
+app.UseCustomHealthChecks();
 
 app.MapControllerRoute(
     name: "default",

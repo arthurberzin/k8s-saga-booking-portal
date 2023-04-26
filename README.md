@@ -5,8 +5,8 @@ The main goal of the project is to practice and review techniques and skills tha
 ![alt text](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/schema.png "Booking application base schema")
 
 
-## Tools Set
-
+## Tools & Technics Set
+- [Health Checks](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/health-checks)
 - [Serilog](https://serilog.net/)
 
 
