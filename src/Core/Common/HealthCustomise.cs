@@ -21,7 +21,7 @@ namespace Core.Common
                         Status = report.Status.ToString(),
                         Checks = report.Entries.Select(it => new HealthCheck
                         {
-                            Componetn = it.Key,
+                            Component = it.Key,
                             Status = it.Value.Status.ToString(),
                             Description = it.Value.Description ?? ""
                         }),
