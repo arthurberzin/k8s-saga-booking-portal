@@ -8,7 +8,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Host.UseSerilog();
 
-builder.Services.AddHealthChecks();
+builder.Services.AddHealthChecks()
+    .AddMemoryHealthCheck("Memory");
 
 var app = builder.Build();
 

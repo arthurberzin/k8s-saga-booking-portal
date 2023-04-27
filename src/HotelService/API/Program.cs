@@ -13,7 +13,8 @@ namespace Hotel.API
             builder.Services.AddControllers();
             builder.Host.UseSerilog();
 
-            builder.Services.AddHealthChecks();
+            builder.Services.AddHealthChecks()
+                .AddMemoryHealthCheck("Memory");
 
             var app = builder.Build();
 

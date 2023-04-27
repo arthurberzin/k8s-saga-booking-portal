@@ -14,7 +14,8 @@ namespace Booking.API
             builder.Services.AddControllers();
             builder.Host.UseSerilog();
 
-            builder.Services.AddHealthChecks();
+            builder.Services.AddHealthChecks()
+                .AddMemoryHealthCheck("Memory");
                 //.AddDbContextCheck<Context>();
 
             var app = builder.Build();

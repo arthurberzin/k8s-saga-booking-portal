@@ -6,8 +6,12 @@ The main goal of the project is to practice and review techniques and skills tha
 
 
 ## Tools & Technics Set
-- [Health Checks](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/health-checks)
+- [Health Checks](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/health-checks) for 'liveness' , memory chech, EF context check
 - [Serilog](https://serilog.net/)
+
+## TODO
+
+- Integrate health check with k8s 'liveness'
 
 
 ## Build Docker Images
