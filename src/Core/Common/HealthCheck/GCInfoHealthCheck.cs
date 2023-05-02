@@ -1,9 +1,9 @@
-﻿using Core.Models;
+﻿using Core.Models.HealthCheck;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 
-namespace Core.Common
+namespace Core.Common.HealthCheck
 {
     public static class GCInfoHealthCheck
     {

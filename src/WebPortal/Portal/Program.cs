@@ -1,4 +1,5 @@
 using Core.Common;
+using Core.Common.HealthCheck;
 
 var builder = WebApplication.CreateBuilder(args);
 

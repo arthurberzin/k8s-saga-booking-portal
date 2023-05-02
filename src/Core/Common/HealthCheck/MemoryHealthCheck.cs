@@ -1,8 +1,8 @@
-﻿using Core.Models;
+﻿using Core.Models.HealthCheck;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Options;
 
-namespace Core.Common
+namespace Core.Common.HealthCheck
 {
     public class MemoryHealthCheck : IHealthCheck
     {
@@ -15,7 +15,7 @@ namespace Core.Common
 
         public string Name => "memory_check";
 
-        public Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
         {
             var options = _options.Get(context.Registration.Name);
 
@@ -28,7 +28,7 @@ namespace Core.Common
                 { "Gen1Collections", GC.CollectionCount(1) },
                 { "Gen2Collections", GC.CollectionCount(2) },
             };
-            var status = (allocated < options.Threshold) ?
+            var status = allocated < options.Threshold ?
                 HealthStatus.Healthy : context.Registration.FailureStatus;
 
             return Task.FromResult(new HealthCheckResult(

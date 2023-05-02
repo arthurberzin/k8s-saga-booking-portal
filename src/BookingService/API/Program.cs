@@ -1,5 +1,5 @@
 using Core.Common;
-
+using Core.Common.HealthCheck;
 
 namespace Booking.API
 {

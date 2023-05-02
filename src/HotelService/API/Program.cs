@@ -1,5 +1,7 @@
 using Core.Common;
-
+using Core.Common.HealthCheck;
+using Hotel.Application.Interfaces;
+using Hotel.Infrastructure;
 namespace Hotel.API
 {
     public class Program
@@ -16,6 +18,8 @@ namespace Hotel.API
             builder.Services.AddHealthChecks()
                 .AddMemoryHealthCheck("Memory");
 
+            builder.Services.AddInfrastructure();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -25,6 +29,14 @@ namespace Hotel.API
             app.UseAuthorization();
 
             app.UseCustomHealthChecks();
+
+            app.UseDataPrePopulation();
+
+            app.MapGet("/", async (IUnitOfWork unitOfWork, CancellationToken cancellationToken) => {
+                    var res = await unitOfWork.Hotels.GetAllAsync(cancellationToken); 
+                    return Results.Ok(res.ToList());
+                }
+            );
 
             app.Run();
         }

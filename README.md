@@ -6,6 +6,7 @@ The main goal of the project is to practice and review techniques and skills tha
 
 
 ## Tools & Technics Set
+- [Entity Framework Core](https://learn.microsoft.com/en-us/ef/core/) , [In-Memory](https://learn.microsoft.com/en-us/ef/core/providers/in-memory), [Eager Loading](https://learn.microsoft.com/en-us/ef/core/querying/related-data/eager)
 - [Health Checks](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/health-checks) for 'liveness' , memory chech
 - [Serilog](https://serilog.net/)
 
@@ -74,7 +75,7 @@ docker run -p 8070:80 -d <docker hub id>/supportal
 
 #### RabbitMQ
 ```powershell
-docker run -d --hostname my-rabbit --name some-rabbit -p 8660:15672 -p 8060:5672 rabbitmq:3-management
+docker run -d --hostname my-rabbit --name booking-rabbit -p 8660:15672 -p 8060:5672 rabbitmq:3-management
 ```
 > RabbitMQ portal [http://localhost:8660](http://localhost:8660) default credentials of guest/guest.
 

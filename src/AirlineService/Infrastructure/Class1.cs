@@ -1,4 +1,4 @@
-﻿namespace Hotel.Application
+﻿namespace Infrastructure
 {
     public class Class1
     {

@@ -1,4 +1,4 @@
-﻿namespace Core.Models
+﻿namespace Core.Models.HealthCheck
 {
     public class MemoryCheckOptions
     {

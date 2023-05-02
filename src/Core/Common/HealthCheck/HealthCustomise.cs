@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using Core.Models;
+using Core.Models.HealthCheck;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 
-namespace Core.Common
+namespace Core.Common.HealthCheck
 {
     public static class HealthCustomise
     {
@@ -19,7 +19,7 @@ namespace Core.Common
                     var response = new HealthCheckResponse
                     {
                         Status = report.Status.ToString(),
-                        Checks = report.Entries.Select(it => new HealthCheck
+                        Checks = report.Entries.Select(it => new HealthCheckItem
                         {
                             Component = it.Key,
                             Status = it.Value.Status.ToString(),

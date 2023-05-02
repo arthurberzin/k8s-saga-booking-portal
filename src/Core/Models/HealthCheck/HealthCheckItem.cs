@@ -1,6 +1,6 @@
-﻿namespace Core.Models
+﻿namespace Core.Models.HealthCheck
 {
-    public class HealthCheck
+    public class HealthCheckItem
     {
         public string Status { get; set; }
 
