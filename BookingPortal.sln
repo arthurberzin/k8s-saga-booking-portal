@@ -16,6 +16,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{849484D8-756F-4ABA-96B8-569F2FBD334F}"
+	ProjectSection(SolutionItems) = preProject
+		tests\Readme.md = tests\Readme.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BA8B65C5-89DC-4473-B45F-6D1FBE30D07D}"
 EndProject
@@ -83,11 +86,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebPortal", "src\WebPortal\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Common", "src\Core\Common\Core.Common.csproj", "{BD2421C7-277A-48AD-A6C1-DC74E09ACBB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.Infrastructure", "src\HotelService\Infrastructure\Hotel.Infrastructure.csproj", "{ACB71473-B056-4C9C-9455-A79E2DB0DB15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hotel.Infrastructure", "src\HotelService\Infrastructure\Hotel.Infrastructure.csproj", "{ACB71473-B056-4C9C-9455-A79E2DB0DB15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRent.Infrastructure", "src\CarRentService\Infrastructure\CarRent.Infrastructure.csproj", "{33D53E8A-1EF3-4BB8-BE1B-6A1F71CA6F8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRent.Infrastructure", "src\CarRentService\Infrastructure\CarRent.Infrastructure.csproj", "{33D53E8A-1EF3-4BB8-BE1B-6A1F71CA6F8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Airline.Infrastructure", "src\AirlineService\Infrastructure\Airline.Infrastructure.csproj", "{B7EE46AB-E170-49B7-94B1-387455A41FDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Airline.Infrastructure", "src\AirlineService\Infrastructure\Airline.Infrastructure.csproj", "{B7EE46AB-E170-49B7-94B1-387455A41FDF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{E3C5D8C5-1C07-499A-8AA1-A0B9DF2513BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonTests", "tests\Core\CommonTests\CommonTests.csproj", "{550D8F46-8765-4C56-A2B3-F8394981B61C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -203,6 +210,10 @@ Global
 		{B7EE46AB-E170-49B7-94B1-387455A41FDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7EE46AB-E170-49B7-94B1-387455A41FDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7EE46AB-E170-49B7-94B1-387455A41FDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{550D8F46-8765-4C56-A2B3-F8394981B61C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{550D8F46-8765-4C56-A2B3-F8394981B61C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{550D8F46-8765-4C56-A2B3-F8394981B61C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{550D8F46-8765-4C56-A2B3-F8394981B61C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -243,6 +254,8 @@ Global
 		{ACB71473-B056-4C9C-9455-A79E2DB0DB15} = {1907E952-4ECE-47DE-8917-63ECFA788E67}
 		{33D53E8A-1EF3-4BB8-BE1B-6A1F71CA6F8F} = {3FB9C0E3-E9A6-4778-998C-6AC640F2A742}
 		{B7EE46AB-E170-49B7-94B1-387455A41FDF} = {285617B1-47FC-4011-AAF2-4EB28551ECE3}
+		{E3C5D8C5-1C07-499A-8AA1-A0B9DF2513BC} = {849484D8-756F-4ABA-96B8-569F2FBD334F}
+		{550D8F46-8765-4C56-A2B3-F8394981B61C} = {E3C5D8C5-1C07-499A-8AA1-A0B9DF2513BC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {76885609-D090-4027-AB63-FCA26D0235E0}

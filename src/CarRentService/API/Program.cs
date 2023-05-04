@@ -1,3 +1,5 @@
+using CarRent.Application.Interfaces;
+using CarRent.Infrastructure;
 using Core.Common;
 using Core.Common.HealthCheck;
 
@@ -17,6 +19,7 @@ namespace CarRent.API
             builder.Services.AddHealthChecks()
                 .AddMemoryHealthCheck("Memory");
 
+            builder.Services.AddInfrastructure();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -26,6 +29,14 @@ namespace CarRent.API
             app.UseAuthorization();
 
             app.UseCustomHealthChecks();
+
+            app.UseDataPrePopulation();
+
+            app.MapGet("/", async (IUnitOfWork unitOfWork, CancellationToken cancellationToken) => {
+               
+                var res = await unitOfWork.Cars.GetAllAsync(true,cancellationToken);
+                return Results.Ok(res.ToList());
+            });
 
             app.Run();
         }
