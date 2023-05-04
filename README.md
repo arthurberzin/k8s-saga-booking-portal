@@ -6,6 +6,8 @@ The main goal of the project is to practice and review techniques and skills tha
 
 
 ## Tools & Technics Set
+- [AutoMapper](https://automapper.org/)
+- [Unit Tests](https://github.com/arthurberzin/k8s-saga-booking-portal/tree/main/tests)
 - [Entity Framework Core](https://learn.microsoft.com/en-us/ef/core/) , [In-Memory](https://learn.microsoft.com/en-us/ef/core/providers/in-memory), [Eager Loading](https://learn.microsoft.com/en-us/ef/core/querying/related-data/eager)
 - [Health Checks](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/health-checks) for 'liveness' , memory chech
 - [Serilog](https://serilog.net/)
@@ -15,6 +17,8 @@ The main goal of the project is to practice and review techniques and skills tha
 - Integrate health check with k8s 'liveness'
 - Add EF context Health Check
 
+## Features
+- The [Open Cage API](https://opencagedata.com/) was used to retrieve the longitude and latitude coordinates of a specific location, such as a city or airport. This information was then used to calculate the distance between two points using the [Haversine formula](https://en.wikipedia.org/wiki/Haversine_formula). *You can find its implementation i* [Car Rent Service](https://github.com/arthurberzin/k8s-saga-booking-portal/tree/main/src/CarRentService/CarRentApplication)
 
 ## Build Docker Images
 

@@ -1,7 +1,12 @@
+using AutoMapper;
+using CarRent.Application;
 using CarRent.Application.Interfaces;
 using CarRent.Infrastructure;
+using CarRent.Models;
 using Core.Common;
 using Core.Common.HealthCheck;
+using Core.Models;
+using System.Linq;
 
 namespace CarRent.API
 {
@@ -19,7 +24,19 @@ namespace CarRent.API
             builder.Services.AddHealthChecks()
                 .AddMemoryHealthCheck("Memory");
 
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
             builder.Services.AddInfrastructure();
+
+            builder.Services.AddScoped<IDistanceCalculator, DistanceCalculator>();
+            builder.Services.AddScoped<IOpenCageDataClient>(x =>
+                new OpenCageDataClient(
+                        builder.Configuration.GetValue<string>("OpenCageApiKey"),
+                        builder.Configuration.GetValue<string>("OpenCageUrl"),
+                        x.GetRequiredService<Serilog.ILogger>()
+                    )
+            );
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -32,10 +49,14 @@ namespace CarRent.API
 
             app.UseDataPrePopulation();
 
-            app.MapGet("/", async (IUnitOfWork unitOfWork, CancellationToken cancellationToken) => {
-               
-                var res = await unitOfWork.Cars.GetAllAsync(true,cancellationToken);
-                return Results.Ok(res.ToList());
+            app.MapGet("/", async (IUnitOfWork unitOfWork, IMapper mapper, IDistanceCalculator calculator, IOpenCageDataClient openCageDataClient,CancellationToken cancellationToken) =>
+            {
+
+                string destination = "Naples International Airport";
+                var destLocation = openCageDataClient.GetLocationByName(destination);
+                var res = await unitOfWork.Cars.GetAllAsync(true, cancellationToken);
+                return Results.Ok(res.ToList().Select(it => mapper.Map<Car, CarDto>(it, opt =>
+                                    opt.AfterMap((src, dest) => dest.Distance = calculator.CalculateDistance(src.CurrentLocation, destLocation)))));
             });
 
             app.Run();
