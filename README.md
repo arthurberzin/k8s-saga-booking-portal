@@ -18,7 +18,7 @@ The main goal of the project is to practice and review techniques and skills tha
 - Add EF context Health Check
 
 ## Features
-- The [Open Cage API](https://opencagedata.com/) was used to retrieve the longitude and latitude coordinates of a specific location, such as a city or airport. This information was then used to calculate the distance between two points using the [Haversine formula](https://en.wikipedia.org/wiki/Haversine_formula). *You can find its implementation i* [Car Rent Service](https://github.com/arthurberzin/k8s-saga-booking-portal/tree/main/src/CarRentService/CarRentApplication)
+- The [Open Cage API](https://opencagedata.com/) was used to retrieve the longitude and latitude coordinates of a specific location, such as a city or airport. This information was then used to calculate the distance between two points using the [Haversine formula](https://en.wikipedia.org/wiki/Haversine_formula). *You can find its implementation i* [Car Rent Service](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/CarRentService/CarRentApplication/DistanceCalculator.cs)
 
 ## Build Docker Images
 
