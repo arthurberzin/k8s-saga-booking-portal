@@ -38,10 +38,9 @@ namespace Airline.API
             app.UseDataPrePopulation();
 
             app.MapGet("/", async (IUnitOfWork unitOfWork, IMapper mapper, CancellationToken cancellationToken) => {
-                var res = await unitOfWork.Aircrafts.GetAllAsync(cancellationToken);
-                return Results.Ok(mapper.Map<List<AircraftDto>>(res.ToList()));
-            }
-);
+                var res = await unitOfWork.Flights.GetAllAsync(cancellationToken);
+                return Results.Ok(mapper.Map<List<FlightDto>>(res.ToList()));
+            });
 
             app.Run();
         }

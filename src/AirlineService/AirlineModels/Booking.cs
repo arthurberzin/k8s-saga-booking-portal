@@ -12,8 +12,6 @@ namespace Airline.Models
 
         public Guid FlightId { get; set; }
         public virtual Flight Flight { get; set; }
-
-        public string FlightNumber => Flight.FlightNumber;
         public string PassengerName { get; set; }
         public string SeatNumber { get; set;}
         public DateTime BookingDateTime { get; set; }

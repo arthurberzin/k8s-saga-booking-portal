@@ -2,7 +2,7 @@
 
 namespace Airline.Application.Interfaces
 {
-    public interface ICrewRepository : IRepository<Crew>
+    public interface ICrewRepository : IRepository<CrewAssignment>
     {
     }
 }

@@ -15,6 +15,5 @@ namespace Airline.Infrastructure
         {
             return _dbContext.Set<Flight>().Any(predicate);
         }
-
     }
 }

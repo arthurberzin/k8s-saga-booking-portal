@@ -9,7 +9,6 @@ namespace Airline.Infrastructure
         private readonly DbContext _context;
 
         public UnitOfWork(DbContext context,
-            IAircraftAssignmentRepository aircraftAssignmentRepository,
             IAircraftRepository airplaneRepository,
             IAirportRepository airportRepository,
             IBookingRepository bookingRepository,
@@ -19,7 +18,6 @@ namespace Airline.Infrastructure
             IFlightRepository flightRepository)
         {
             _context = context;
-            AircraftAssignments = aircraftAssignmentRepository;
             Aircrafts = airplaneRepository;
             Airports = airportRepository;
             Bookings = bookingRepository;
@@ -29,7 +27,6 @@ namespace Airline.Infrastructure
             Flights = flightRepository;
         }
 
-        public IAircraftAssignmentRepository AircraftAssignments { get; private set; }
         public IAircraftRepository Aircrafts { get; private set; }
         public IAirportRepository Airports { get; private set; }
         public IBookingRepository Bookings { get; private set; }

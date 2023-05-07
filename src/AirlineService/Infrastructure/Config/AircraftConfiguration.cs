@@ -15,7 +15,7 @@ namespace Airline.Infrastructure
         {
             builder.HasKey(it => it.Id);
             builder.Property(it => it.Id).IsRequired();
-            builder.HasMany(it => it.Assignments).WithOne(it => it.Aircraft).HasForeignKey(it=>it.AircraftId);
+            builder.HasMany(it => it.Flights).WithOne(it => it.Aircraft).HasForeignKey(it=>it.AircraftId);
         }
     }
 }

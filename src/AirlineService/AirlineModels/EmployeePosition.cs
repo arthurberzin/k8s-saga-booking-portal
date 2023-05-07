@@ -13,8 +13,8 @@ namespace Airline.Models
         public Guid EmployeeId { get; set; }
         public virtual Employee Employee { get; set; }
 
-        public string Title { get; set; }
-        public string Department { get; set; }
+        public PositionTitle Title { get; set; }
+        public DepartmentType Department { get; set; }
         public decimal Salary { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }

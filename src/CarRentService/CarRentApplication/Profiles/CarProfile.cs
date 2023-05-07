@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using CarRent.Application.Interfaces;
 using CarRent.Models;
-using Core.Models;
+using Core.Models.CarRentService;
 
 namespace CarRent.Application.Profiles
 {

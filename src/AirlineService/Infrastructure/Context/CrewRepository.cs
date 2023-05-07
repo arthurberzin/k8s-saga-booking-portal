@@ -5,15 +5,15 @@ using Airline.Application.Interfaces;
 
 namespace Airline.Infrastructure
 {
-    public class CrewRepository : Repository<Crew>, ICrewRepository
+    public class CrewRepository : Repository<CrewAssignment>, ICrewRepository
     {
         public CrewRepository(DbContext dbContext) : base(dbContext)
         {
         }
 
-        public override bool Exist(Expression<Func<Crew, bool>> predicate)
+        public override bool Exist(Expression<Func<CrewAssignment, bool>> predicate)
         {
-            return _dbContext.Set<Crew>().Any(predicate);
+            return _dbContext.Set<CrewAssignment>().Any(predicate);
         }
 
     }

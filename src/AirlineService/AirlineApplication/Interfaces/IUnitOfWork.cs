@@ -2,7 +2,6 @@
 {
     public  interface IUnitOfWork : IDisposable
     {
-        IAircraftAssignmentRepository AircraftAssignments { get; }
         IAircraftRepository Aircrafts { get; }
         IAirportRepository Airports { get; }
         IBookingRepository Bookings { get; }

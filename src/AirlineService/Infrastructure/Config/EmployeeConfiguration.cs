@@ -15,7 +15,7 @@ namespace Airline.Infrastructure
         {
             builder.HasKey(it => it.Id);
             builder.Property(it => it.Id).IsRequired();
-            builder.HasOne(it=>it.Crew).WithOne(it=>it.Employee).HasForeignKey<Crew>(it => it.EmployeeId);
+            builder.HasOne(it=>it.Crew).WithOne(it=>it.Employee).HasForeignKey<CrewAssignment>(it => it.EmployeeId);
             builder.HasOne(it=>it.Position).WithOne(it=>it.Employee).HasForeignKey<EmployeePosition>(it => it.EmployeeId);
         }
     }

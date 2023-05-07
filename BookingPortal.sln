@@ -33,6 +33,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aggregator.Application", "src\AggregatorService\AggregatorApplication\Aggregator.Application.csproj", "{A26CFAEA-D29C-477A-806D-6017EB1D0391}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AirlineService", "AirlineService", "{285617B1-47FC-4011-AAF2-4EB28551ECE3}"
+	ProjectSection(SolutionItems) = preProject
+		src\AirlineService\dbschema.png = src\AirlineService\dbschema.png
+		src\AirlineService\Readme.md = src\AirlineService\Readme.md
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Airline.Application", "src\AirlineService\AirlineApplication\Airline.Application.csproj", "{2A287D46-71F2-47B3-92B5-EFE7011765FD}"
 EndProject
@@ -98,7 +102,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonTests", "tests\Core\C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CarRent", "CarRent", "{11140C03-B192-4F48-A728-01CEF9E8FD68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppplicationTests", "tests\CarRent\AppplicationTests\AppplicationTests.csproj", "{D92964F2-87E3-4276-A60E-D28F025BE8A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppplicationTests", "tests\CarRent\AppplicationTests\AppplicationTests.csproj", "{D92964F2-87E3-4276-A60E-D28F025BE8A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

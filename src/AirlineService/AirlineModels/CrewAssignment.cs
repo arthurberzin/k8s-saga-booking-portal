@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Airline.Models
 {
-    public class Crew
+    public class CrewAssignment
     {
         public Guid Id { get; set; }
 
@@ -15,7 +15,6 @@ namespace Airline.Models
         public virtual Flight Flight { get; set; }
         public virtual Employee Employee { get; set; }
 
-        public string FlightNumber => Flight.FlightNumber;
         public CrewRole Role { get; set; }
     }
 }

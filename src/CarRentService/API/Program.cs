@@ -5,7 +5,7 @@ using CarRent.Infrastructure;
 using CarRent.Models;
 using Core.Common;
 using Core.Common.HealthCheck;
-using Core.Models;
+using Core.Models.CarRentService;
 using System.Linq;
 
 namespace CarRent.API

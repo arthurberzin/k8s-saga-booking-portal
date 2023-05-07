@@ -13,10 +13,10 @@ namespace Airline.Models
         public Guid PositionId { get; set; }
         public Guid CrewId { get; set; }
         public virtual EmployeePosition Position { get; set; }
-        public virtual Crew Crew { get; set; }
+        public virtual CrewAssignment Crew { get; set; }
 
         public string FirstName { get;set; }
         public string LastName { get; set; }
-        public string HireDate { get; set; }
+        public DateTime HireDate { get; set; }
     }
 }

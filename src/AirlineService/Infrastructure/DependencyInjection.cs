@@ -10,7 +10,6 @@ namespace Airline.Infrastructure
         {
             services.AddDbContext<DbContext, ApplicationDbContext>(opt => opt.UseInMemoryDatabase("InMen"));
 
-            services.AddScoped<IAircraftAssignmentRepository, AircraftAssignmentRepository>();
             services.AddScoped<IAircraftRepository, AircraftRepository>();
             services.AddScoped<IAirportRepository, AirportRepository>();
             services.AddScoped<IBookingRepository, BookingRepository>();

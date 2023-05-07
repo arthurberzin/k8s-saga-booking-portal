@@ -7,6 +7,6 @@
         public AircraftType AircraftType { get; set; }
         public int Capacity { get; set; }
 
-        public virtual List<AircraftAssignment> Assignments { get; set; }
+        public virtual List<Flight> Flights { get; set; }
     }
 }
