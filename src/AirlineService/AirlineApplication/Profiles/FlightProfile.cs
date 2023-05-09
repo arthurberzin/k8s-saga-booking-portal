@@ -20,7 +20,7 @@ namespace Airline.Application.Profiles
                 .ForMember(dest => dest.AircraftNumber, opt => opt.MapFrom(src => src.Aircraft.RegistrationNumber))
                 .ForMember(dest => dest.AircraftCapacity, opt => opt.MapFrom(src => src.Aircraft.Capacity))
                 .ForMember(dest => dest.AircraftType, opt => opt.MapFrom(src => src.Aircraft.AircraftType))
-                .ForMember(dest => dest.AircraftOccupiedCapacity, opt => opt.MapFrom(src => src.FlightBookings.Count))
+                .ForMember(dest => dest.AircraftOccupiedCapacity, opt => opt.MapFrom(src => src.SeatsBookings.Count))
                 .ForMember(dest => dest.ArrivalAirport, opt => opt.MapFrom(src => src.ArrivalAirport.AirportCode))
                 .ForMember(dest => dest.ArrivalAirportCity, opt => opt.MapFrom(src => src.ArrivalAirport.City))
                 .ForMember(dest => dest.ArrivalAirportCountry, opt => opt.MapFrom(src => src.ArrivalAirport.Country))

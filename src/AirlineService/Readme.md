@@ -15,6 +15,7 @@
  - [Employee](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/AirlineService/AirlineModels/Employee.cs)
  - [EmployeePosition](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/AirlineService/AirlineModels/EmployeePosition.cs)
  - [Flight](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/AirlineService/AirlineModels/Flight.cs)
+ - [Seat](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/AirlineService/AirlineModels/Seat.cs)
 
  ## DB Context
 
@@ -30,6 +31,7 @@
  - [Employee Configuration](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/AirlineService/Infrastructure/Config/EmployeeConfiguration.cs)
  - [Employee Position Configuration](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/AirlineService/Infrastructure/Config/EmployeePositionConfiguration.cs)
  - [Flight Configuration](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/AirlineService/Infrastructure/Config/FlightConfiguration.cs)
+ - [Seat Configuration](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/AirlineService/Infrastructure/Config/SeatConfiguration.cs)
 
  ## Unit Of Work with Repository pattern
 
@@ -46,3 +48,4 @@
  - [EmployeePositionRepository](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/AirlineService/Infrastructure/Context/EmployeePositionRepository.cs)
  - [EmployeeRepository](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/AirlineService/Infrastructure/Context/EmployeeRepository.cs)
  - [FlightRepository](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/AirlineService/Infrastructure/Context/FlightRepository.cs) 
+ - [SeatRepository](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/AirlineService/Infrastructure/Context/SeatRepository.cs) 

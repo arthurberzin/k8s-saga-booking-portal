@@ -9,6 +9,7 @@ namespace Core.Models.AirlineService
     public class FlightDto
     {
         public string FlightNumber { get; set; }
+        public decimal SeatPrice { get; set; }
 
         public string DepartureAirport { get; set; }
         public string DepartureAirportCity { get; set; }

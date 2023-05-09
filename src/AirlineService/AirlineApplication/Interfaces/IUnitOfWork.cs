@@ -9,6 +9,7 @@
         IEmployeePositionRepository EmployeePositions { get; }
         IEmployeeRepository Employees { get; }
         IFlightRepository Flights { get; }
+        ISeatRepository Seats { get; }
 
         int Complete();
         Task<int> CompleteAsync(CancellationToken cancellationToken = default);

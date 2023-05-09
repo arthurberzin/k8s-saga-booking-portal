@@ -20,7 +20,7 @@ namespace Airline.Infrastructure
 
             builder.HasOne(it => it.Aircraft).WithMany(it => it.Flights).HasForeignKey(it=>it.AircraftId);
 
-            builder.HasMany(it => it.FlightBookings).WithOne(it => it.Flight).HasForeignKey(it => it.FlightId);
+            builder.HasMany(it => it.SeatsBookings).WithOne(it => it.Flight).HasForeignKey(it => it.FlightId);
 
             builder.HasMany(it => it.Crew).WithOne(it => it.Flight).HasForeignKey(it => it.FlightId);
 
@@ -30,7 +30,7 @@ namespace Airline.Infrastructure
             builder.Navigation(e => e.ArrivalAirport).AutoInclude();
             builder.Navigation(e => e.DepartureAirport).AutoInclude();
             builder.Navigation(e => e.Aircraft).AutoInclude();
-            builder.Navigation(e => e.FlightBookings).AutoInclude();
+            builder.Navigation(e => e.SeatsBookings).AutoInclude();
         }
     }
 }

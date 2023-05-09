@@ -17,6 +17,7 @@ namespace Airline.Infrastructure
             services.AddScoped<IEmployeePositionRepository, EmployeePositionRepository>();
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddScoped<IFlightRepository, FlightRepository>();
+            services.AddScoped<ISeatRepository, SeatRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;

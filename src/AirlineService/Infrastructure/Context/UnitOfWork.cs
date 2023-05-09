@@ -15,7 +15,8 @@ namespace Airline.Infrastructure
             ICrewRepository crewRepository,
             IEmployeePositionRepository employeePositionRepository,
             IEmployeeRepository employeeRepository,
-            IFlightRepository flightRepository)
+            IFlightRepository flightRepository,
+            ISeatRepository seats)
         {
             _context = context;
             Aircrafts = airplaneRepository;
@@ -25,6 +26,7 @@ namespace Airline.Infrastructure
             EmployeePositions = employeePositionRepository;
             Employees = employeeRepository;
             Flights = flightRepository;
+            Seats = seats;
         }
 
         public IAircraftRepository Aircrafts { get; private set; }
@@ -34,6 +36,7 @@ namespace Airline.Infrastructure
         public IEmployeePositionRepository EmployeePositions { get; private set; }
         public IEmployeeRepository Employees { get; private set; }
         public IFlightRepository Flights { get; private set; }
+        public ISeatRepository Seats { get; private set; }
 
         public int Complete()
         {

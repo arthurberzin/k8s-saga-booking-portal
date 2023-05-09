@@ -33,7 +33,8 @@ namespace Airline.Infrastructure
                     }
                 };
 
-                CrewAssignment emilyCrewAssignment = new CrewAssignment { 
+                CrewAssignment emilyCrewAssignment = new CrewAssignment
+                {
                     Employee = emilySmith,
                     Role = CrewRole.FlightAttendant,
                 };
@@ -124,12 +125,13 @@ namespace Airline.Infrastructure
                 #endregion
 
                 #region Airport
-                Airport warsawAirport = new Airport { 
+                Airport warsawAirport = new Airport
+                {
                     AirportCode = "WAW",
                     AirportName = "Warsaw Airport",
                     City = "Warsaw",
-                    Country= "Poland",
-                    State = "MZ"                    
+                    Country = "Poland",
+                    State = "MZ"
                 };
 
                 Airport napoliAirport = new Airport
@@ -143,97 +145,169 @@ namespace Airline.Infrastructure
                 #endregion
 
                 #region Aircraft
-                Aircraft aircraftSPLPD = new Aircraft { 
+                Aircraft aircraftSPLPD = new Aircraft
+                {
                     AircraftType = AircraftType.Boeing747,
                     Capacity = 80,
-                    RegistrationNumber = "SP-LPD",                    
+                    RegistrationNumber = "SP-LPD",
                 };
                 #endregion
 
                 #region Flight
-                Flight flightW6245_WarsawNaples = new Flight { 
-                    Crew = new List<CrewAssignment> { 
-                        emilyCrewAssignment, 
-                        emmaCrewAssignment , 
-                        sophiaCrewAssignment, 
+                Flight flightW6245_WarsawNaples = new Flight
+                {
+                    Crew = new List<CrewAssignment> {
+                        emilyCrewAssignment,
+                        emmaCrewAssignment ,
+                        sophiaCrewAssignment,
                         noahCrewAssignment,
-                        benjaminCrewAssignment 
+                        benjaminCrewAssignment
                     },
-                    FlightNumber = "W6245",     
+                    FlightNumber = "W6245",
+                    SeatPrice = 150,
                     DepartureAirport = warsawAirport,
                     ArrivalAirport = napoliAirport,
                     DepartureDateTime = DateTime.UtcNow.AddDays(100).AddHours(10),
                     ArrivalDateTime = DateTime.UtcNow.AddDays(100).AddHours(14),
                     Aircraft = aircraftSPLPD,
-                    FlightBookings = new List<Booking> {
-                        new Booking{
-                            BookingDateTime = DateTime.UtcNow.AddDays(-10),
-                            PassengerName = "Liam Smith",
-                            SeatNumber = string.Empty
-                        },new Booking{
-                            BookingDateTime = DateTime.UtcNow.AddDays(-20),
-                            PassengerName = "Madison Brown",
-                            SeatNumber = string.Empty
-                        },new Booking{
-                            BookingDateTime = DateTime.UtcNow.AddDays(-14),
-                            PassengerName = "Olivia Davis",
-                            SeatNumber = string.Empty
-                        },new Booking{
-                            BookingDateTime = DateTime.UtcNow.AddDays(-22),
-                            PassengerName = "Ava Garcia",
-                            SeatNumber = string.Empty
-                        },new Booking{
-                            BookingDateTime = DateTime.UtcNow.AddDays(-15),
-                            PassengerName = "Sophia Rodriguez",
-                            SeatNumber = string.Empty
-                        },new Booking{
-                            BookingDateTime = DateTime.UtcNow.AddDays(-17),
-                            PassengerName = "Isabella Martinez",
-                            SeatNumber = string.Empty
-                        },new Booking{
-                            BookingDateTime = DateTime.UtcNow.AddDays(-25),
-                            PassengerName = "Mia Hernandez",
-                            SeatNumber = string.Empty
-                        },new Booking{
-                            BookingDateTime = DateTime.UtcNow.AddDays(-42),
-                            PassengerName = "Charlotte Gonzalez",
-                            SeatNumber = string.Empty
-                        },new Booking{
-                            BookingDateTime = DateTime.UtcNow.AddDays(-22),
-                            PassengerName = "Amelia Perez",
-                            SeatNumber = string.Empty
-                        },new Booking{
-                            BookingDateTime = DateTime.UtcNow.AddDays(-20),
-                            PassengerName = "Michael Garcia",
-                            SeatNumber = string.Empty
-                        },new Booking{
-                            BookingDateTime = DateTime.UtcNow.AddDays(-6),
-                            PassengerName = "Liam Smith",
-                            SeatNumber = string.Empty
-                        },new Booking{
-                            BookingDateTime = DateTime.UtcNow.AddDays(-23),
-                            PassengerName = "William Brown",
-                            SeatNumber = string.Empty
-                        },new Booking{
+                    SeatsBookings =
+
+                    new List<Seat> {
+                        new Seat {
+                            SeatNumber = String.Empty,
+                            Price = 150,
+                            Booking = new Booking{
+                                BookingDateTime = DateTime.UtcNow.AddDays(-10),
+                                PassengerName = "Liam Smith"
+                            },
+                        },
+                        new Seat {
+                            SeatNumber = String.Empty,
+                            Price = 150,
+                            Booking = new Booking{
+                                BookingDateTime = DateTime.UtcNow.AddDays(-20),
+                                PassengerName = "Madison Brown"
+                            }
+                        },
+                        new Seat {
+                            SeatNumber = String.Empty,
+                            Price = 150,
+                            Booking = new Booking{
+                                BookingDateTime = DateTime.UtcNow.AddDays(-14),
+                                PassengerName = "Olivia Davis"
+                            }
+                        },
+                        new Seat {
+                            SeatNumber = String.Empty,
+                            Price = 140,
+                            Booking = new Booking{
+                                BookingDateTime = DateTime.UtcNow.AddDays(-22),
+                                PassengerName = "Ava Garcia"
+                            }
+                        },
+                        new Seat {
+                            SeatNumber = String.Empty,
+                            Price = 150,
+                            Booking = new Booking{
+                                BookingDateTime = DateTime.UtcNow.AddDays(-15),
+                                PassengerName = "Sophia Rodriguez"
+                            }
+                        },
+                        new Seat {
+                            SeatNumber = String.Empty,
+                            Price = 150,
+                            Booking = new Booking{
+                                BookingDateTime = DateTime.UtcNow.AddDays(-17),
+                                PassengerName = "Isabella Martinez"
+                            }
+                        },
+                        new Seat {
+                            SeatNumber = String.Empty,
+                            Price = 140,
+                            Booking = new Booking{
+                                BookingDateTime = DateTime.UtcNow.AddDays(-25),
+                                PassengerName = "Mia Hernandez"
+                            }
+                        },
+                        new Seat {
+                            SeatNumber = String.Empty,
+                            Price = 120,
+                            Booking = new Booking{
+                                BookingDateTime = DateTime.UtcNow.AddDays(-42),
+                                PassengerName = "Charlotte Gonzalez"
+                            }
+                        },
+                        new Seat {
+                            SeatNumber = String.Empty,
+                            Price = 140,
+                            Booking = new Booking{
+                                BookingDateTime = DateTime.UtcNow.AddDays(-22),
+                                PassengerName = "Amelia Perez"
+                            }
+                        },
+                        new Seat {
+                            SeatNumber = String.Empty,
+                            Price = 150,
+                            Booking = new Booking{
+                                BookingDateTime = DateTime.UtcNow.AddDays(-20),
+                                PassengerName = "Michael Garcia"
+                            }
+                        },
+                        new Seat {
+                            SeatNumber = String.Empty,
+                            Price = 150,
+                            Booking = new Booking{
+                                BookingDateTime = DateTime.UtcNow.AddDays(-6),
+                                PassengerName = "Liam Smith"
+                            }
+                        },
+                        new Seat {
+                            SeatNumber = String.Empty,
+                            Price = 140,
+                            Booking = new Booking{
+                                BookingDateTime = DateTime.UtcNow.AddDays(-23),
+                                PassengerName = "William Brown"
+                            }
+                        },
+                        new Seat {
+                            SeatNumber = String.Empty,
+                            Price = 130,
+                            Booking = new Booking{
                             BookingDateTime = DateTime.UtcNow.AddDays(-27),
-                            PassengerName = "Ethan Davis",
-                            SeatNumber = string.Empty
-                        },new Booking{
-                            BookingDateTime = DateTime.UtcNow.AddDays(-12),
-                            PassengerName = "Oliver Rodriguez",
-                            SeatNumber = string.Empty
-                        },new Booking{
-                            BookingDateTime = DateTime.UtcNow.AddDays(-2),
-                            PassengerName = "James Martinez",
-                            SeatNumber = string.Empty
-                        },new Booking{
-                            BookingDateTime = DateTime.UtcNow.AddDays(-4),
-                            PassengerName = "Lucas Hernandez",
-                            SeatNumber = string.Empty
-                        },new Booking{
-                            BookingDateTime = DateTime.UtcNow.AddDays(-31),
-                            PassengerName = "Mason Jones",
-                            SeatNumber = string.Empty
+                            PassengerName = "Ethan Davis"
+                        }
+                        },
+                        new Seat {
+                            SeatNumber = String.Empty,
+                            Price = 150,
+                            Booking = new Booking{
+                                BookingDateTime = DateTime.UtcNow.AddDays(-12),
+                                PassengerName = "Oliver Rodriguez"
+                            }
+                        },
+                        new Seat {
+                            SeatNumber = String.Empty,
+                            Price = 150,
+                            Booking = new Booking{
+                                BookingDateTime = DateTime.UtcNow.AddDays(-2),
+                                PassengerName = "James Martinez"
+                            }
+                        },
+                        new Seat {
+                            SeatNumber = String.Empty,
+                            Price = 150,
+                            Booking = new Booking{
+                                BookingDateTime = DateTime.UtcNow.AddDays(-4),
+                                PassengerName = "Lucas Hernandez",
+                            }
+                        },
+                        new Seat {
+                            SeatNumber = String.Empty,
+                            Price = 120,
+                            Booking = new Booking{
+                                BookingDateTime = DateTime.UtcNow.AddDays(-31),
+                                PassengerName = "Mason Jones"
+                            }
                         },
                     }
                 };

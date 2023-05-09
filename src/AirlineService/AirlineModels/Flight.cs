@@ -10,6 +10,7 @@ namespace Airline.Models
     {
         public Guid Id { get; set; }
         public string FlightNumber { get; set; }
+        public decimal SeatPrice { get; set; }
 
         public Guid AircraftId { get; set; }
         public Guid DepartureAirportId { get; set; }
@@ -21,7 +22,7 @@ namespace Airline.Models
         public virtual Aircraft Aircraft { get; set; }
         public virtual Airport DepartureAirport { get; set; }
         public virtual Airport ArrivalAirport { get; set; }
-        public virtual List<Booking> FlightBookings { get; set; }
+        public virtual List<Seat> SeatsBookings { get; set; }
         public virtual List<CrewAssignment> Crew { get; set; }
     }
 }

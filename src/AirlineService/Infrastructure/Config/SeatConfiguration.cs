@@ -9,13 +9,14 @@ using Airline.Models;
 
 namespace Airline.Infrastructure
 {
-    public class BookingConfiguration : IEntityTypeConfiguration<Booking>
+    public class SeatConfiguration : IEntityTypeConfiguration<Seat>
     {
-        public void Configure(EntityTypeBuilder<Booking> builder)
+        public void Configure(EntityTypeBuilder<Seat> builder)
         {
             builder.HasKey(it => it.Id);
             builder.Property(it => it.Id).IsRequired();
-            builder.HasOne(it=>it.Seat).WithOne(it=>it.Booking).HasForeignKey<Seat>(it => it.BookingId);
+            builder.HasOne(it => it.Booking).WithOne(it => it.Seat).HasForeignKey<Booking>(it => it.SeatId);
+            builder.HasOne(it => it.Flight).WithMany(it => it.SeatsBookings).HasForeignKey(it => it.FlightId);
         }
     }
 }
