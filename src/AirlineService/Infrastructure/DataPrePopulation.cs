@@ -167,12 +167,11 @@ namespace Airline.Infrastructure
                     SeatPrice = 150,
                     DepartureAirport = warsawAirport,
                     ArrivalAirport = napoliAirport,
-                    DepartureDateTime = DateTime.UtcNow.AddDays(100).AddHours(10),
-                    ArrivalDateTime = DateTime.UtcNow.AddDays(100).AddHours(14),
+                    DepartureDateTime = DateTime.UtcNow.AddDays(30).AddHours(10),
+                    ArrivalDateTime = DateTime.UtcNow.AddDays(30).AddHours(14),
                     Aircraft = aircraftSPLPD,
-                    SeatsBookings =
-
-                    new List<Seat> {
+                    SeatsBookings =  new List<Seat>
+                    {
                         new Seat {
                             SeatNumber = String.Empty,
                             Price = 150,
@@ -196,7 +195,28 @@ namespace Airline.Infrastructure
                                 BookingDateTime = DateTime.UtcNow.AddDays(-14),
                                 PassengerName = "Olivia Davis"
                             }
-                        },
+                        }
+                    }
+                };
+
+                Flight flightLO882_WarsawNaples = new Flight
+                {
+                    Crew = new List<CrewAssignment> {
+                        emilyCrewAssignment,
+                        emmaCrewAssignment ,
+                        sophiaCrewAssignment,
+                        noahCrewAssignment,
+                        benjaminCrewAssignment
+                    },
+                    FlightNumber = "LO882",
+                    SeatPrice = 160,
+                    DepartureAirport = warsawAirport,
+                    ArrivalAirport = napoliAirport,
+                    DepartureDateTime = DateTime.UtcNow.AddDays(23).AddHours(10),
+                    ArrivalDateTime = DateTime.UtcNow.AddDays(23).AddHours(14),
+                    Aircraft = aircraftSPLPD,
+                    SeatsBookings =  new List<Seat>
+                    {
                         new Seat {
                             SeatNumber = String.Empty,
                             Price = 140,
@@ -236,7 +256,28 @@ namespace Airline.Infrastructure
                                 BookingDateTime = DateTime.UtcNow.AddDays(-42),
                                 PassengerName = "Charlotte Gonzalez"
                             }
-                        },
+                        }
+                    }
+                };
+
+                Flight flightAZ365_WarsawNaples = new Flight
+                {
+                    Crew = new List<CrewAssignment> {
+                        emilyCrewAssignment,
+                        emmaCrewAssignment ,
+                        sophiaCrewAssignment,
+                        noahCrewAssignment,
+                        benjaminCrewAssignment
+                    },
+                    FlightNumber = "AZ365",
+                    SeatPrice = 180,
+                    DepartureAirport = warsawAirport,
+                    ArrivalAirport = napoliAirport,
+                    DepartureDateTime = DateTime.UtcNow.AddDays(16).AddHours(10),
+                    ArrivalDateTime = DateTime.UtcNow.AddDays(16).AddHours(14),
+                    Aircraft = aircraftSPLPD,
+                    SeatsBookings =  new List<Seat>
+                    {
                         new Seat {
                             SeatNumber = String.Empty,
                             Price = 140,
@@ -273,10 +314,31 @@ namespace Airline.Infrastructure
                             SeatNumber = String.Empty,
                             Price = 130,
                             Booking = new Booking{
-                            BookingDateTime = DateTime.UtcNow.AddDays(-27),
-                            PassengerName = "Ethan Davis"
+                                BookingDateTime = DateTime.UtcNow.AddDays(-27),
+                                PassengerName = "Ethan Davis"
+                            }
                         }
-                        },
+                    }
+                };
+
+                Flight flightFR737_WarsawNaples = new Flight
+                {
+                    Crew = new List<CrewAssignment> {
+                        emilyCrewAssignment,
+                        emmaCrewAssignment ,
+                        sophiaCrewAssignment,
+                        noahCrewAssignment,
+                        benjaminCrewAssignment
+                    },
+                    FlightNumber = "FR737",
+                    SeatPrice = 210,
+                    DepartureAirport = warsawAirport,
+                    ArrivalAirport = napoliAirport,
+                    DepartureDateTime = DateTime.UtcNow.AddDays(9).AddHours(10),
+                    ArrivalDateTime = DateTime.UtcNow.AddDays(9).AddHours(14),
+                    Aircraft = aircraftSPLPD,
+                    SeatsBookings = new List<Seat>
+                    {
                         new Seat {
                             SeatNumber = String.Empty,
                             Price = 150,
@@ -308,14 +370,17 @@ namespace Airline.Infrastructure
                                 BookingDateTime = DateTime.UtcNow.AddDays(-31),
                                 PassengerName = "Mason Jones"
                             }
-                        },
+                        }
                     }
                 };
 
                 #endregion
 
                 context.Set<Flight>().AddRange(
-                    flightW6245_WarsawNaples
+                    flightW6245_WarsawNaples,
+                    flightLO882_WarsawNaples,
+                    flightAZ365_WarsawNaples,
+                    flightFR737_WarsawNaples
                 );
 
                 context.SaveChanges();
