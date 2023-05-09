@@ -6,6 +6,9 @@ using CarRent.Models;
 using Core.Common;
 using Core.Common.HealthCheck;
 using Core.Models.CarRentService;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using System.Linq;
 
 namespace CarRent.API
@@ -21,6 +24,8 @@ namespace CarRent.API
             builder.Services.AddControllers();
             builder.Host.UseSerilog();
 
+            builder.Services.Configure<CarRentOptions>(builder.Configuration.GetSection("CarRentOptions"));
+
             builder.Services.AddHealthChecks()
                 .AddMemoryHealthCheck("Memory");
 
@@ -29,12 +34,14 @@ namespace CarRent.API
             builder.Services.AddInfrastructure();
 
             builder.Services.AddScoped<IDistanceCalculator, DistanceCalculator>();
-            builder.Services.AddScoped<IOpenCageDataClient>(x =>
-                new OpenCageDataClient(
-                        builder.Configuration.GetValue<string>("OpenCageApiKey"),
-                        builder.Configuration.GetValue<string>("OpenCageUrl"),
+            builder.Services.AddScoped<IOpenCageDataClient>(x => {                
+                var carRentOptions = x.GetRequiredService<IOptions<CarRentOptions>>();                
+                return new OpenCageDataClient(
+                        carRentOptions.Value.OpenCageApiKey,
+                        carRentOptions.Value.OpenCageUrl,
                         x.GetRequiredService<Serilog.ILogger>()
-                    )
+                    );
+                }
             );
 
             var app = builder.Build();
