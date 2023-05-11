@@ -6,6 +6,7 @@ The main goal of the project is to practice and review techniques and skills tha
 
 
 ## Tools & Technics Set
+- [gRPC](https://learn.microsoft.com/en-us/aspnet/core/grpc)
 - [AutoMapper](https://automapper.org/)
 - [Unit Tests](https://github.com/arthurberzin/k8s-saga-booking-portal/tree/main/tests)
 - [Entity Framework Core](https://learn.microsoft.com/en-us/ef/core/) , [In-Memory](https://learn.microsoft.com/en-us/ef/core/providers/in-memory), [Eager Loading](https://learn.microsoft.com/en-us/ef/core/querying/related-data/eager)
@@ -23,6 +24,7 @@ The main goal of the project is to practice and review techniques and skills tha
 - The [Open Cage API](https://opencagedata.com/) was used to retrieve the longitude and latitude coordinates of a specific location, such as a city or airport. This information was then used to calculate the distance between two points using the [Haversine formula](https://en.wikipedia.org/wiki/Haversine_formula). *You can find its implementation in* [Car Rent Service](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/CarRentService/CarRentApplication/DistanceCalculator.cs)
 - In this project, a comprehensive Airlines Database Schema was implemented using `Entity Framework` and various configuration options. *More info in* [Airline Service](https://github.com/arthurberzin/k8s-saga-booking-portal/tree/main/src/AirlineService).
 - The [Options Pattern](https://learn.microsoft.com/en-us/dotnet/core/extensions/options) is utilized in the solution to retrieve application settings as an injectable model with settings. *Using of Options could be found in* [Car Rent Service](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/CarRentService/API/Program.cs).
+- The [gRPC](https://learn.microsoft.com/en-us/aspnet/core/grpc) was utilized to retrieve a large amount of data in a single cluster. It provides the ability to quickly retrieve a large amount of data without any problems caused by network instability.
 
 ## Build Docker Images
 
