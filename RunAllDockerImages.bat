@@ -9,7 +9,7 @@ docker run -d --hostname my-rabbit --name booking-rabbit -p 8660:15672 -p 8060:5
 
 docker run --name bookingapi -p 8050:80 -d %DOCKERHUBID%/bookingapi
 
-docker run --name aggregatorgapi -p 8040:80 -d %DOCKERHUBID%/aggregatorgapi
+docker run --name billingapi -p 8040:80 -d %DOCKERHUBID%/billingapi
 
 docker run --name hotelapi -p 8030:80 -d %DOCKERHUBID%/hotelapi
 

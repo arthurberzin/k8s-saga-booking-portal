@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Core.Models;
+using Hotel.Application.Grpc;
 using Hotel.Models;
 
 namespace Hotel.Application
@@ -9,8 +10,8 @@ namespace Hotel.Application
         public HotelProfile()
         {
                      
-            CreateMap<HotelData, HotelDto>()
-                .ForMember(dest => dest.OccupateDates, opt => opt.MapFrom(src => src.OccupateDates.Select(it=>it.DayOfYear).ToArray()))
+            CreateMap<Hotel.Models.HotelData, Hotel.Application.Grpc.HotelData>()
+                .ForMember(dest => dest.OccupiedDates, opt => opt.MapFrom(src => src.OccupiedDates.Select(it=>it.DayOfYear).ToArray()))
                 .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images.Select(it => it.ImageUrl).ToArray()));
         }
     }

@@ -7,7 +7,7 @@ docker push %DOCKERHUBID%/supportal
 
 docker push %DOCKERHUBID%/bookingapi
 
-docker push %DOCKERHUBID%/aggregatorgapi
+docker push %DOCKERHUBID%/billingapi
 
 docker push %DOCKERHUBID%/hotelapi
 

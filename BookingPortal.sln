@@ -26,11 +26,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{A4FF5D0D-B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Models", "src\Core\Models\Core.Models.csproj", "{9EE02B82-ED50-43C9-9ACA-34BBACB6A1F1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AggregatorService", "AggregatorService", "{5A226E12-450E-4144-90D5-842796AD4C4D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BillingService", "BillingService", "{5A226E12-450E-4144-90D5-842796AD4C4D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aggregator.API", "src\AggregatorService\API\Aggregator.API.csproj", "{339FA6B7-3566-4ABA-9D55-6B8516B328FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Billing.API", "src\BillingService\API\Billing.API.csproj", "{339FA6B7-3566-4ABA-9D55-6B8516B328FA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aggregator.Application", "src\AggregatorService\AggregatorApplication\Aggregator.Application.csproj", "{A26CFAEA-D29C-477A-806D-6017EB1D0391}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Billing.Application", "src\BillingService\BillingApplication\Billing.Application.csproj", "{A26CFAEA-D29C-477A-806D-6017EB1D0391}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AirlineService", "AirlineService", "{285617B1-47FC-4011-AAF2-4EB28551ECE3}"
 	ProjectSection(SolutionItems) = preProject
@@ -58,7 +58,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRent.API", "src\CarRentS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRent.Application", "src\CarRentService\CarRentApplication\CarRent.Application.csproj", "{94910398-7860-4B1D-A22F-FE43211E299B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aggregator.Models", "src\AggregatorService\AggregatorModels\Aggregator.Models.csproj", "{074AF853-7B15-4E3B-AEC8-B469FBA9F6A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Billing.Models", "src\BillingService\BillingModels\Billing.Models.csproj", "{074AF853-7B15-4E3B-AEC8-B469FBA9F6A9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Airline.Models", "src\AirlineService\AirlineModels\Airline.Models.csproj", "{9B4FBF8A-9583-49CA-8380-07AD59A505C7}"
 EndProject

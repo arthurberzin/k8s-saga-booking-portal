@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Hotel.Models
 {
-    public class HotelOccupateDate
+    public class HotelOccupiedDate
     {
-        public HotelOccupateDate() { }
-        public HotelOccupateDate(DateTime date) : base() { 
+        public HotelOccupiedDate() { }
+        public HotelOccupiedDate(DateTime date) : base() { 
             OccupateDate = date;
         }
-        public HotelOccupateDate(int dayOfYear) : base() {
+        public HotelOccupiedDate(int dayOfYear) : base() {
             OccupateDate = new DateTime(DateTime.Now.Year, 1, 1).AddDays(dayOfYear - 1); ;
         }
 

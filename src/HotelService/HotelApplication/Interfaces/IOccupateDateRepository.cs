@@ -2,7 +2,7 @@
 
 namespace Hotel.Application.Interfaces
 {
-    public interface IOccupateDateRepository : IRepository<HotelOccupateDate>
+    public interface IOccupiedDateRepository : IRepository<HotelOccupiedDate>
     {
     }
 }

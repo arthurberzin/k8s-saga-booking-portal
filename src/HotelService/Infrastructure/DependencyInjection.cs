@@ -14,7 +14,7 @@ namespace Hotel.Infrastructure
             services.AddScoped<IHotelRepository, HotelRepository>();
             services.AddScoped<IPeriodRepository, PeriodRepository>();
             services.AddScoped<IHotelImageRepository, HotelImageRepository>();
-            services.AddScoped<IOccupateDateRepository, OccupateDateRepository>();
+            services.AddScoped<IOccupiedDateRepository, OccupiedDateRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;

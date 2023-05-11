@@ -9,7 +9,7 @@ docker pull rabbitmq
 
 docker build -f src\BookingService\API\Dockerfile -t %DOCKERHUBID%/bookingapi .
 
-docker build -f src\AggregatorService\API\Dockerfile -t %DOCKERHUBID%/aggregatorgapi .
+docker build -f src\BillingService\API\Dockerfile -t %DOCKERHUBID%/billingapi .
 
 docker build -f src\HotelService\API\Dockerfile -t %DOCKERHUBID%/hotelapi .
 

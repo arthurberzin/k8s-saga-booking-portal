@@ -5,7 +5,7 @@
         IPeriodRepository Periods { get; }
         IHotelRepository Hotels { get; }
         IHotelImageRepository HotelImages { get; }
-        IOccupateDateRepository HotelOccupateDates { get; }
+        IOccupiedDateRepository HotelOccupiedDates { get; }
 
         int Complete();
         Task<int> CompleteAsync(CancellationToken cancellationToken = default);

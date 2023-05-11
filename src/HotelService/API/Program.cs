@@ -1,8 +1,6 @@
-using AutoMapper;
 using Core.Common;
 using Core.Common.HealthCheck;
-using Core.Models;
-using Hotel.Application.Interfaces;
+using Hotel.Application.Grpc.Service;
 using Hotel.Infrastructure;
 namespace Hotel.API
 {
@@ -16,6 +14,8 @@ namespace Hotel.API
 
             builder.Services.AddControllers();
             builder.Host.UseSerilog();
+
+            builder.Services.AddGrpc();
 
             builder.Services.AddHealthChecks()
                 .AddMemoryHealthCheck("Memory");
@@ -35,12 +35,7 @@ namespace Hotel.API
 
             app.UseDataPrePopulation();
 
-
-            app.MapGet("/", async (IUnitOfWork unitOfWork, IMapper mapper, CancellationToken cancellationToken) => {
-                    var res = await unitOfWork.Hotels.GetAllAsync(cancellationToken); 
-                    return Results.Ok(mapper.Map<List<HotelDto>>(res.ToList()));
-                }
-            );
+            app.MapGrpcService<GrpcHotelService>();
 
             app.Run();
         }

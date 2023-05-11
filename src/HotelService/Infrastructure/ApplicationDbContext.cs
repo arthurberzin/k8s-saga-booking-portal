@@ -16,7 +16,7 @@ namespace Hotel.Infrastructure
 
         public DbSet<HotelData> Hotels => Set<HotelData>();
         public DbSet<HotelImage> HotelImages => Set<HotelImage>();
-        public DbSet<HotelOccupateDate> HotelOccupateDates => Set<HotelOccupateDate>();
+        public DbSet<HotelOccupiedDate> HotelOccupateDates => Set<HotelOccupiedDate>();
 
 
         public override int SaveChanges()
@@ -34,7 +34,7 @@ namespace Hotel.Infrastructure
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
             modelBuilder.Entity<HotelData>().Navigation(e => e.Prices).AutoInclude();
-            modelBuilder.Entity<HotelData>().Navigation(e => e.OccupateDates).AutoInclude();
+            modelBuilder.Entity<HotelData>().Navigation(e => e.OccupiedDates).AutoInclude();
             modelBuilder.Entity<HotelData>().Navigation(e => e.Images).AutoInclude();
         }
     }

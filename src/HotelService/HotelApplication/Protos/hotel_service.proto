@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package HotelService;
+
+option csharp_namespace = "Hotel.Application.Grpc";
+
+import "google/protobuf/timestamp.proto";
+
+message HotelData {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  float review_score = 4;
+  int32 max_people = 5;
+  string address = 6;
+  repeated int32 occupied_dates = 7;
+  repeated string images = 8;
+  repeated PriceDetails prices = 9;
+}
+
+message PriceDetails {
+  double price = 1;
+  int32 from_day = 2;
+  int32 to_day = 3;
+}
+
+message HotelsRequest {
+  google.protobuf.Timestamp from = 1;
+  google.protobuf.Timestamp to = 2;
+}
+
+
+message HotelsResponse {
+    repeated HotelData hotels = 1;
+}
+
+service HotelService {
+  rpc GetHotels(HotelsRequest) returns (HotelsResponse);
+}

@@ -11,19 +11,19 @@ namespace Hotel.Infrastructure.Context
             IHotelRepository hotelsRepository,
             IPeriodRepository periodsRepository,
             IHotelImageRepository hotelImageRepository,
-            IOccupateDateRepository occupateDateRepository)
+            IOccupiedDateRepository occupateDateRepository)
         {
             _context = context;
             Hotels = hotelsRepository;
             Periods = periodsRepository;
             HotelImages = hotelImageRepository;
-            HotelOccupateDates = occupateDateRepository;
+            HotelOccupiedDates = occupateDateRepository;
         }
 
         public IHotelRepository Hotels { get; private set; }
         public IPeriodRepository Periods { get; private set; }
         public IHotelImageRepository HotelImages { get; private set; }
-        public IOccupateDateRepository HotelOccupateDates { get; private set; }
+        public IOccupiedDateRepository HotelOccupiedDates { get; private set; }
 
         public int Complete()
         {

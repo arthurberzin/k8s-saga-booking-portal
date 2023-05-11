@@ -1,5 +1,8 @@
 using Core.Common;
 using Core.Common.HealthCheck;
+using WebPortal.Application.Grpc;
+using WebPortal.Application.Interfaces;
+using WebPortal.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +14,11 @@ builder.Host.UseSerilog();
 
 builder.Services.AddHealthChecks()
     .AddMemoryHealthCheck("Memory");
+
+
+builder.Services.Configure<WebPortalOptions>(builder.Configuration.GetSection("WebPortalOptions"));
+
+builder.Services.AddScoped<IHotelServiceClient, HotelServiceClient>();
 
 var app = builder.Build();
 

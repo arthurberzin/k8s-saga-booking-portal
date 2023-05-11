@@ -46,9 +46,9 @@ docker pull rabbitmq
 docker build -f src\BookingService\API\Dockerfile -t <docker hub id>/bookingapi .
 ```
 
-#### Aggregator Service 
+#### Billing Service 
 ```powershell
-docker build -f src\AggregatorService\API\Dockerfile -t <docker hub id>/aggregatorgapi .
+docker build -f src\BillingService\API\Dockerfile -t <docker hub id>/billingapi .
 ```
 
 #### Hotel Service 
@@ -92,9 +92,9 @@ docker run -d --hostname my-rabbit --name booking-rabbit -p 8660:15672 -p 8060:5
 docker run -p 8050:80 -d <docker hub id>/bookingapi
 ```
 
-#### Aggregator Service 
+#### Billing Service 
 ```powershell
-docker run -p 8040:80 -d <docker hub id>/aggregatorgapi
+docker run -p 8040:80 -d <docker hub id>/billingapi
 ```
 
 #### Hotel Service 
