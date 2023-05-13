@@ -23,8 +23,11 @@ namespace Hotel.Application.Grpc.Service
             try
             {
                 var response = new HotelsResponse();
+                //TODO Filtering by date
+                var res = await _unitOfWork.Hotels.FindAsync(it => it.City.ToLower() == request.City.ToLower() 
+                                                                    && it.Country.ToLower() == request.Country.ToLower(), 
+                                                                    context.CancellationToken);
 
-                var res = await _unitOfWork.Hotels.GetAllAsync(context.CancellationToken);
                 response.Hotels.AddRange(_mapper.Map<List<HotelData>>(res.ToList()));
 
                 return response;

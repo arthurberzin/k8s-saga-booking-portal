@@ -33,10 +33,12 @@ namespace CarRent.Application.GrpcService
                     _logger.Error("Bad Request");
                     return null;
                 }
-                Location destLocation = !string.IsNullOrEmpty(request.Location) ? _openCageDataClient.GetLocationByName(request.Location) : new Location { Latitude = request.Latitude, Longitude = request.Longitude};
+                Location destLocation = !string.IsNullOrEmpty(request.Location) ? 
+                    _openCageDataClient.GetLocationByName(request.Location) : 
+                    new Location { Latitude = request.Latitude, Longitude = request.Longitude};
             
                 var response = new CarsResponse();
-
+                //TODO look up by city or by radius to location
                 var res = await _unitOfWork.Cars.GetAllAsync(context.CancellationToken);
                 response.Cars.AddRange(res.ToList().Select(it => _mapper.Map<Car, CarData>(it, opt =>
                                 opt.AfterMap((src, dest) => dest.Distance = _calculator.CalculateDistance(src.CurrentLocation, destLocation)))));
