@@ -1,15 +1,12 @@
 using AutoMapper;
 using CarRent.Application;
+using CarRent.Application.GrpcService;
 using CarRent.Application.Interfaces;
 using CarRent.Infrastructure;
 using CarRent.Models;
 using Core.Common;
 using Core.Common.HealthCheck;
-using Core.Models.CarRentService;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using System.Linq;
 
 namespace CarRent.API
 {
@@ -32,6 +29,8 @@ namespace CarRent.API
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             builder.Services.AddInfrastructure();
+
+            builder.Services.AddGrpc();
 
             builder.Services.AddScoped<IDistanceCalculator, DistanceCalculator>();
             builder.Services.AddScoped<IOpenCageDataClient>(x => {                
@@ -56,15 +55,7 @@ namespace CarRent.API
 
             app.UseDataPrePopulation();
 
-            app.MapGet("/", async (IUnitOfWork unitOfWork, IMapper mapper, IDistanceCalculator calculator, IOpenCageDataClient openCageDataClient,CancellationToken cancellationToken) =>
-            {
-
-                string destination = "Naples International Airport";
-                var destLocation = openCageDataClient.GetLocationByName(destination);
-                var res = await unitOfWork.Cars.GetAllAsync(true, cancellationToken);
-                return Results.Ok(res.ToList().Select(it => mapper.Map<Car, CarDto>(it, opt =>
-                                    opt.AfterMap((src, dest) => dest.Distance = calculator.CalculateDistance(src.CurrentLocation, destLocation)))));
-            });
+            app.MapGrpcService<GrpcCarRentService>();
 
             app.Run();
         }

@@ -69,6 +69,10 @@ namespace CarRent.Infrastructure.Context
         #endregion
 
         #region Async
+        public async Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default)
+        {
+            return await Task.Run(() => Find(predicate), cancellationToken);
+        }
         public async Task<TEntity> GetAsync(object id, CancellationToken cancellationToken = default)
         {
             return await _dbContext.Set<TEntity>().FindAsync(new object[] { id }, cancellationToken: cancellationToken);

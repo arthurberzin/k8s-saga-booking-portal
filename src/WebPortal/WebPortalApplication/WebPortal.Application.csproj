@@ -26,4 +26,12 @@
 		<Protobuf Include="Protos\hotel_service.proto" GrpcServices="Client" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<Protobuf Include="Protos\car_rent_service.proto" GrpcServices="Client" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Protobuf Include="Protos\airline_service.proto" GrpcServices="Client" />
+	</ItemGroup>
+
 </Project>

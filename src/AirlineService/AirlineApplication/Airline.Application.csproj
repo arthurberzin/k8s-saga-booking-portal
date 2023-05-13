@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Ardalis.GuardClauses" Version="4.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Google.Protobuf" Version="3.23.0" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.53.0" />
@@ -22,5 +23,7 @@
     <ProjectReference Include="..\..\Core\Models\Core.Models.csproj" />
     <ProjectReference Include="..\AirlineModels\Airline.Models.csproj" />
   </ItemGroup>
-
+	<ItemGroup>
+		<Protobuf Include="Protos\airline_service.proto" GrpcServices="Server" />
+	</ItemGroup>
 </Project>

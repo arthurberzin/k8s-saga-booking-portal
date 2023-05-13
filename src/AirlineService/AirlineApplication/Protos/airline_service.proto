@@ -1,0 +1,43 @@
+﻿syntax = "proto3";
+
+package FlightsService;
+
+option csharp_namespace = "Airline.Application.Grpc";
+
+import "google/protobuf/timestamp.proto";
+
+import "google/protobuf/duration.proto";
+
+
+message FlightData {
+  string flight_number = 1;
+  double seat_price = 2;
+  string departure_airport = 3;
+  string departure_airport_city = 4;
+  string departure_airport_country = 5;
+  string arrival_airport = 6;
+  string arrival_airport_city = 7;
+  string arrival_airport_country = 8;
+  google.protobuf.Timestamp departure_date_time = 9;
+  google.protobuf.Timestamp arrival_date_time = 10;
+  google.protobuf.Duration flight_duration = 11;
+  string aircraft_number = 12;
+  string aircraft_type = 13;
+  int32 aircraft_capacity = 14;
+  int32 aircraft_occupied_capacity = 15;
+}
+
+message FlightsRequest {
+  google.protobuf.Timestamp from = 1;
+  google.protobuf.Timestamp to = 2;
+  string departure_location = 3;
+  string arrival_location = 4;
+}
+
+message FlightsResponse {
+  repeated FlightData flights = 1;
+}
+
+service FlightsService {
+  rpc GetFlights(FlightsRequest) returns (FlightsResponse);
+}

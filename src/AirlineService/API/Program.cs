@@ -1,10 +1,13 @@
+using Airline.Application.GrpcService;
 using Airline.Application.Interfaces;
 using Airline.Infrastructure;
 using Airline.Models;
 using AutoMapper;
 using Core.Common;
 using Core.Common.HealthCheck;
-using Core.Models.AirlineService;
+using Grpc.AspNetCore.HealthChecks;
+using Grpc.HealthCheck;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Airline.API
 {
@@ -18,11 +21,13 @@ namespace Airline.API
 
             builder.Services.AddControllers();
             builder.Host.UseSerilog();
-            
+
             builder.Services.AddHealthChecks()
-                .AddMemoryHealthCheck("Memory");
+                    .AddMemoryHealthCheck("Memory");
 
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            builder.Services.AddGrpc();
 
             builder.Services.AddInfrastructure();
             var app = builder.Build();
@@ -37,10 +42,7 @@ namespace Airline.API
 
             app.UseDataPrePopulation();
 
-            app.MapGet("/", async (IUnitOfWork unitOfWork, IMapper mapper, CancellationToken cancellationToken) => {
-                var res = await unitOfWork.Flights.GetAllAsync(cancellationToken);
-                return Results.Ok(mapper.Map<List<FlightDto>>(res.ToList()));
-            });
+            app.MapGrpcService<GrpcAirlineService>();
 
             app.Run();
         }

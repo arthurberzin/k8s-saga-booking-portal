@@ -18,6 +18,7 @@ namespace CarRent.Infrastructure
         }
 
         public DbSet<Car> Periods => Set<Car>();
+        public DbSet<CarOccupiedDate> OccupiedDates => Set<CarOccupiedDate>();
         public DbSet<Location> Locations => Set<Location>();
 
         public override int SaveChanges()

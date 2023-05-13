@@ -1,13 +1,7 @@
-﻿using Airline.Models;
+﻿using Airline.Application.Grpc;
+using Airline.Models;
 using AutoMapper;
-using Core.Models;
-using Core.Models.AirlineService;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Google.Protobuf.WellKnownTypes;
 
 namespace Airline.Application.Profiles
 {
@@ -15,7 +9,7 @@ namespace Airline.Application.Profiles
     {
         public FlightProfile()
         {
-            CreateMap<Flight, FlightDto>()
+            CreateMap<Flight, FlightData>()
                 .ForMember(dest => dest.FlightDuration, opt => opt.MapFrom(src => src.ArrivalDateTime - src.DepartureDateTime))
                 .ForMember(dest => dest.AircraftNumber, opt => opt.MapFrom(src => src.Aircraft.RegistrationNumber))
                 .ForMember(dest => dest.AircraftCapacity, opt => opt.MapFrom(src => src.Aircraft.Capacity))
@@ -26,7 +20,12 @@ namespace Airline.Application.Profiles
                 .ForMember(dest => dest.ArrivalAirportCountry, opt => opt.MapFrom(src => src.ArrivalAirport.Country))
                 .ForMember(dest => dest.DepartureAirport, opt => opt.MapFrom(src => src.DepartureAirport.AirportCode))
                 .ForMember(dest => dest.DepartureAirportCity, opt => opt.MapFrom(src => src.DepartureAirport.City))
-                .ForMember(dest => dest.DepartureAirportCountry, opt => opt.MapFrom(src => src.DepartureAirport.Country));            
+                .ForMember(dest => dest.DepartureAirportCountry, opt => opt.MapFrom(src => src.DepartureAirport.Country))
+                .ForMember(dest => dest.FlightDuration, opt => opt.MapFrom(src => Duration.FromTimeSpan(src.ArrivalDateTime.ToUniversalTime() - src.DepartureDateTime.ToUniversalTime())))
+                .ForMember(dest => dest.ArrivalDateTime, opt => opt.MapFrom(src => Timestamp.FromDateTime(src.ArrivalDateTime.ToUniversalTime())))
+                .ForMember(dest => dest.DepartureDateTime, opt => opt.MapFrom(src => Timestamp.FromDateTime(src.DepartureDateTime.ToUniversalTime())));
+
+
         }
     }
 }

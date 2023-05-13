@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package HotelService;
 
-option csharp_namespace = "WebPortal.Application.Grpc";
+option csharp_namespace = "Hotel.Application.Grpc";
 
 import "google/protobuf/timestamp.proto";
 
@@ -27,6 +27,8 @@ message PriceDetails {
 message HotelsRequest {
   google.protobuf.Timestamp from = 1;
   google.protobuf.Timestamp to = 2;
+  string city = 3;
+  string country = 4;
 }
 
 

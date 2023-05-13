@@ -1,0 +1,39 @@
+﻿syntax = "proto3";
+
+package CarRentService;
+
+option csharp_namespace = "CarRent.Application.Grpc";
+
+import "google/protobuf/timestamp.proto";
+
+message CarData {
+  string id = 1;
+  double distance = 2;
+  string name = 3;
+  string imageUrl = 4;
+  string type = 5;
+  string transmission = 6;
+  int32 seats = 7;
+  int32 largeBag = 8;
+  int32 smallBag = 9;
+  int32 mileageLimit = 10;
+  float pricePerDay = 11;
+  repeated int32 occupied_dates = 12;
+}
+
+message CarsRequest {
+  google.protobuf.Timestamp from = 1;
+  google.protobuf.Timestamp to = 2;
+  string location = 3;
+  double latitude = 4;
+  double longitude = 5;
+}
+
+
+message CarsResponse {
+  repeated CarData cars = 1;
+}
+
+service CarService {
+  rpc GetCars(CarsRequest) returns (CarsResponse);
+}

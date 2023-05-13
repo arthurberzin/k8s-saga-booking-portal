@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
-using CarRent.Application.Interfaces;
+using CarRent.Application.Grpc;
 using CarRent.Models;
-using Core.Models.CarRentService;
 
 namespace CarRent.Application.Profiles
 {
@@ -9,7 +8,9 @@ namespace CarRent.Application.Profiles
     {
         public CarProfile()
         {
-            CreateMap<Car, CarDto>().ForMember(dest => dest.Distance, opt => opt.Ignore() );
+            CreateMap<Car, CarData>()
+                .ForMember(dest => dest.Distance, opt => opt.Ignore() )
+                .ForMember(dest => dest.OccupiedDates, opt => opt.MapFrom( src => src.OccupiedDates.Select(it=>it.DayOfYear).ToList()));
         }
     }
 }

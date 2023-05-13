@@ -22,3 +22,54 @@
     </tr>
   </tbody>
 </table>
+
+
+<h1 id="tableLabel">Cars</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!cars?.length"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="cars.length">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Transmission</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let car of cars">
+      <td>{{ car.name }}</td>
+      <td>{{ car.type }}</td>
+      <td>{{ car.transmission }}</td>
+      <td>{{ car.pricePerDay }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="tableLabel">Flights</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!flights?.length"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="flights.length">
+  <thead>
+    <tr>
+      <th>departureAirport</th>
+      <th>departureDateTime</th>
+      <th>arrivalAirport</th>
+      <th>arrivalDateTime</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let flight of flights">
+      <td>{{ flight.departureAirport }}</td>
+      <td>{{ flight.departureDateTime }}</td>
+      <td>{{ flight.arrivalAirport }}</td>
+      <td>{{ flight.arrivalDateTime }}</td>
+    </tr>
+  </tbody>
+</table>

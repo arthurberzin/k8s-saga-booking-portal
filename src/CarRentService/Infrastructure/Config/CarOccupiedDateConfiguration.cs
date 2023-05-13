@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Hotel.Infrastructure.Config
 {
-    internal class LocationConfiguration : IEntityTypeConfiguration<Location>
+    internal class CarOccupiedDateConfiguration : IEntityTypeConfiguration<CarOccupiedDate>
     {
-        public void Configure(EntityTypeBuilder<Location> builder)
+        public void Configure(EntityTypeBuilder<CarOccupiedDate> builder)
         {
             builder.HasKey(it => it.Id);
             builder.Property(it => it.Id).IsRequired();
-            builder.HasOne<Car>().WithOne(it=>it.CurrentLocation).HasForeignKey<Car>(it => it.CurrentLocationId);
+            builder.HasOne<Car>().WithMany(it=>it.OccupiedDates).HasForeignKey(it=> it.CarId);
         }
     }
 }

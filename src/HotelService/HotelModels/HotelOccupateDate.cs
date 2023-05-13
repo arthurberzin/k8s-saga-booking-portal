@@ -13,11 +13,17 @@ namespace Hotel.Models
             OccupateDate = date;
         }
         public HotelOccupiedDate(int dayOfYear) : base() {
-            OccupateDate = new DateTime(DateTime.Now.Year, 1, 1).AddDays(dayOfYear - 1); ;
+            OccupateDate = new DateTime(DateTime.UtcNow.Year, 1, 1).AddDays(dayOfYear - 1); ;
+        }
+        public HotelOccupiedDate(int dayOfYear, string guestName) : this(dayOfYear)
+        {
+            GuestName = guestName;
         }
 
         public Guid Id { get; set; }
         public DateTime OccupateDate { get; set; }
+
+        public string GuestName { get; set; }
         public int DayOfYear => OccupateDate.DayOfYear;
     }
 }

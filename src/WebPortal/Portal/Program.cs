@@ -18,7 +18,7 @@ builder.Services.AddHealthChecks()
 
 builder.Services.Configure<WebPortalOptions>(builder.Configuration.GetSection("WebPortalOptions"));
 
-builder.Services.AddScoped<IHotelServiceClient, HotelServiceClient>();
+builder.Services.AddScoped<IDataAggregatorClient, DataAggregatorClient>();
 
 var app = builder.Build();
 

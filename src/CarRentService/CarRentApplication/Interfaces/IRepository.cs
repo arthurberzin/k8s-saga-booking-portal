@@ -20,6 +20,7 @@ namespace CarRent.Application.Interfaces
         void RemoveRange(IEnumerable<TEntity> entities);
 
         // Async
+        Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default);
 
         Task<TEntity> GetAsync(object id, CancellationToken cancellationToken = default);
         Task<IEnumerable<TEntity>> GetAllAsync(CancellationToken cancellationToken = default);

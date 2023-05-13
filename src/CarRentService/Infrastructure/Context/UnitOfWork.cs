@@ -15,6 +15,7 @@ namespace CarRent.Infrastructure.Context
         }
 
         public ICarRepository Cars { get; private set; }
+        public ICarOccupiedDateRepository OccupiedDates { get; private set; }
         public ILocationRepository Locations { get; private set; }
         
         public int Complete()
