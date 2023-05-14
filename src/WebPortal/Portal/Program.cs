@@ -15,7 +15,7 @@ builder.Host.UseSerilog();
 builder.Services.AddHealthChecks()
     .AddMemoryHealthCheck("Memory");
 
-
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.Configure<WebPortalOptions>(builder.Configuration.GetSection("WebPortalOptions"));
 
 builder.Services.AddScoped<IDataAggregatorClient, DataAggregatorClient>();

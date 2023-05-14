@@ -10,43 +10,39 @@ using System.Threading.Tasks;
 
 namespace CarRent.Application
 {
-    public  class DistanceCalculator : IDistanceCalculator
+    public class DistanceCalculator : IDistanceCalculator
     {
-        private readonly ILogger _logger;
         private IOpenCageDataClient _openCageDataClient;
-        public DistanceCalculator(IOpenCageDataClient openCageDataClient, ILogger logger) 
-        { 
+        public DistanceCalculator(IOpenCageDataClient openCageDataClient)
+        {
             _openCageDataClient = openCageDataClient;
-            _logger = logger;
         }
 
         public double CalculateDistance(string location1Name, string location2Name)
         {
             var location1 = _openCageDataClient.GetLocationByName(location1Name);
-            if (location1 == null)
+            if (location1.Item1 == 0  || location1.Item2 == 0)
             {
-                _logger.Error($"Could not find location with name '{location1Name}'.");
-                return 0;
+                throw new Exception($"Could not find location with name '{location1Name}'.");
             }
 
             var location2 = _openCageDataClient.GetLocationByName(location2Name);
-            if (location2 == null)
+            if (location2.Item1 == 0 || location2.Item2 == 0)
             {
-                _logger.Error($"Could not find location with name '{location2Name}'.");
-                return 0;
+                throw new Exception($"Could not find location with name '{location2Name}'.");
             }
 
-            return CalculateDistance(location1.Latitude, location1.Longitude, location2.Latitude, location2.Longitude);
+            return CalculateDistance(location1.Item1, location1.Item2, location2.Item1, location2.Item2);
         }
         public double CalculateDistance(Location location1, string location2Name)
         {            
             var location2 = _openCageDataClient.GetLocationByName(location2Name);
-            if (location2 == null)
+            if (location2.Item1 == 0 || location2.Item2 == 0)
             {
-                _logger.Error($"Could not find location with name '{location2Name}'.");
-                return 0;
+                throw new Exception($"Could not find location with name '{location2Name}'.");
+
             }
-            return CalculateDistance(location1.Latitude, location1.Longitude, location2.Latitude, location2.Longitude);
+            return CalculateDistance(location1.Latitude, location1.Longitude, location2.Item1, location2.Item2);
         }
 
         public double CalculateDistance(Location location1, Location location2)

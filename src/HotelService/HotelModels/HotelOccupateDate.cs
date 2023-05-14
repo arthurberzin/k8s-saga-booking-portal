@@ -9,11 +9,19 @@ namespace Hotel.Models
     public class HotelOccupiedDate
     {
         public HotelOccupiedDate() { }
-        public HotelOccupiedDate(DateTime date) : base() { 
+        public HotelOccupiedDate(DateTime date) : base() {
+            if (date.Kind != DateTimeKind.Utc)
+            {
+                date = date.ToUniversalTime();
+            }
             OccupateDate = date;
         }
         public HotelOccupiedDate(int dayOfYear) : base() {
-            OccupateDate = new DateTime(DateTime.UtcNow.Year, 1, 1).AddDays(dayOfYear - 1); ;
+            OccupateDate = new DateTime(DateTime.UtcNow.Year, 1, 1).AddDays(dayOfYear - 1);
+            if (OccupateDate.Kind != DateTimeKind.Utc)
+            {
+                OccupateDate = OccupateDate.ToUniversalTime();
+            }
         }
         public HotelOccupiedDate(int dayOfYear, string guestName) : this(dayOfYear)
         {
@@ -24,6 +32,5 @@ namespace Hotel.Models
         public DateTime OccupateDate { get; set; }
 
         public string GuestName { get; set; }
-        public int DayOfYear => OccupateDate.DayOfYear;
     }
 }

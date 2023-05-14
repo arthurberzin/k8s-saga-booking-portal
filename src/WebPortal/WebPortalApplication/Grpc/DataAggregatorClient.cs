@@ -60,7 +60,7 @@ namespace WebPortal.Application.Grpc
                 var request = new HotelsRequest
                 {
                     Country = country,//"Italy"
-                    City = city, // "Amalfy"
+                    City = city, // "Amalfi"
                     From = Google.Protobuf.WellKnownTypes.Timestamp.FromDateTime(from),
                     To = Google.Protobuf.WellKnownTypes.Timestamp.FromDateTime(to)
                 };
@@ -74,7 +74,7 @@ namespace WebPortal.Application.Grpc
                 return Enumerable.Empty<HotelData>();
             }
         }
-        public async Task<IEnumerable<CarData>> GetCars(DateTime from, DateTime to, string location, CancellationToken cancellationToken = default)
+        public async Task<IEnumerable<CarData>> GetCars(DateTime from, DateTime to, string country, string city, string location, double latitude, double longitude, CancellationToken cancellationToken = default)
         {
             try
             {
@@ -82,7 +82,11 @@ namespace WebPortal.Application.Grpc
                 var client = new CarService.CarServiceClient(channel);
                 var request = new CarsRequest
                 {
+                    Country = country,//"Italy"
+                    City = city,// "Napoli"
                     Location = location, // "Naples International Airport"
+                    Latitude = latitude, 
+                    Longitude = longitude,
                     From = Google.Protobuf.WellKnownTypes.Timestamp.FromDateTime(from),
                     To = Google.Protobuf.WellKnownTypes.Timestamp.FromDateTime(to)
                 };

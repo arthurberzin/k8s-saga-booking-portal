@@ -18,7 +18,6 @@ The main goal of the project is to practice and review techniques and skills tha
 - Integrate health check with k8s 'liveness'
 - Add EF context Health Check
 - Booking engine for Airline Service, implement time to book a place
-- Filtering gRPC (Car Service, look up by city or by radius to location. Hotel Service, Filter by time period)
 
 ## Features
 - [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)  In this solution, you can find the use of Clean Architecture. The solution has different services with Clean Architecture structure.

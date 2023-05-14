@@ -15,12 +15,11 @@ namespace AppplicationTests
         public void Setup()
         {
             var cageClientMock = new Mock<IOpenCageDataClient>();
-            var serilogMock = new Mock<ILogger>();
 
             cageClientMock.Setup(client => client.GetLocationByName(It.IsAny<string>()))
-                .Returns(new Location { Latitude = 40.8863637540212, Longitude = 14.288939376033577 });
+                .Returns(( 40.8863637540212,14.288939376033577 ));
 
-            _distanceCalculator = new DistanceCalculator( cageClientMock.Object, serilogMock.Object);
+            _distanceCalculator = new DistanceCalculator( cageClientMock.Object);
         }
 
         /// <summary>

@@ -23,7 +23,7 @@ namespace CarRent.Application
             _endPointUrl = endPointUrl;
         }
 
-        public  Location GetLocationByName(string name)
+        public (double, double) GetLocationByName(string name)
         {
             try
             {
@@ -33,12 +33,12 @@ namespace CarRent.Application
                 dynamic data = JObject.Parse(json);
                 double lat = data.results[0].geometry.lat;
                 double lon = data.results[0].geometry.lng;
-                return new Location { Latitude = lat, Longitude = lon };
+                return (lat, lon);
             }
             catch (Exception ex) 
             {
                 _logger.Error(ex.Message);
-                return null;
+                return (0,0);
             }
         }
     }

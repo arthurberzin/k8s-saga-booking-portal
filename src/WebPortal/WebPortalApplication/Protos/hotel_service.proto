@@ -13,7 +13,7 @@ message HotelData {
   float review_score = 4;
   int32 max_people = 5;
   string address = 6;
-  repeated int32 occupied_dates = 7;
+  repeated google.protobuf.Timestamp  occupied_dates = 7;
   repeated string images = 8;
   repeated PriceDetails prices = 9;
 }
@@ -29,6 +29,8 @@ message HotelsRequest {
   google.protobuf.Timestamp to = 2;
   string city = 3;
   string country = 4;
+  int32 skip = 5;
+  int32 take = 6;
 }
 
 

@@ -25,24 +25,7 @@ export class FetchDataComponent {
   }
 }
 
-/*
-function durationToDate(duration: google.protobuf.IDuration): Date {
-  const date = new Date();
-  const ms = duration.seconds * 1000 + duration.nanos / 1000000;
-  date.setTime(date.getTime() + ms);
-  return date;
-}
-*/
 
-interface Duration {
-  seconds: number;
-  nanos: number;
-}
-
-const duration: Duration = {
-  seconds: 5,
-  nanos: 0
-};
 
 interface Car {
   id: string;
@@ -56,7 +39,7 @@ interface Car {
   smallBag: number;
   mileageLimit: number;
   pricePerDay: number;
-  occupiedDates: number[];
+  occupiedDates: Date[];
 }
 
 interface Flight {
@@ -68,9 +51,9 @@ interface Flight {
   arrivalAirport: string;
   arrivalAirportCity: string;
   arrivalAirportCountry: string;
-  departureDateTime: Duration;
-  arrivalDateTime: Duration;
-  flightDuration: Duration;
+  departureDateTime: Date;
+  arrivalDateTime: Date;
+  flightDuration: Date;
   aircraftNumber: string;
   aircraftType: string;
   aircraftCapacity: number;
@@ -84,7 +67,7 @@ interface Hotel {
   reviewScore: number;
   maxPeople: number;
   address: string;
-  occupateDates: number[];
+  occupateDates: Date[];
   images: string[];
   prices: Price[];
 }

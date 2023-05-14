@@ -18,15 +18,19 @@ message CarData {
   int32 smallBag = 9;
   int32 mileageLimit = 10;
   float pricePerDay = 11;
-  repeated int32 occupied_dates = 12;
+  repeated google.protobuf.Timestamp occupied_dates = 12;
 }
 
 message CarsRequest {
   google.protobuf.Timestamp from = 1;
   google.protobuf.Timestamp to = 2;
-  string location = 3;
-  double latitude = 4;
-  double longitude = 5;
+  string country = 3;
+  string city = 4;
+  double latitude = 5;
+  double longitude = 6;
+  string location = 7;
+  int32 skip = 8;
+  int32 take = 9;
 }
 
 

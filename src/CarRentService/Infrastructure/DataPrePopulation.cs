@@ -31,6 +31,8 @@ namespace CarRent.Infrastructure
                     new Car
                     {
                         CurrentLocation = new Location { 
+                            City ="Napoli",
+                            Country = "Italy",
                             Latitude = 40.847261979137436,
                             Longitude = 14.312058323004266
                         },
@@ -101,7 +103,9 @@ namespace CarRent.Infrastructure
                         CurrentLocation = new Location
                         {
                             Latitude = 40.888928234509,
-                            Longitude = 14.309043494843904
+                            Longitude = 14.309043494843904,
+                            City = "Napoli",
+                            Country = "Italy",
                         },
                         Name = "Citroen C3",
                         ImageUrl = "https://cdn2.rcstatic.com/images/car_images/web/citroen/c3_lrg.jpg",
@@ -171,6 +175,8 @@ namespace CarRent.Infrastructure
                         {
                             Latitude = 40.919851840520295,
                             Longitude = 14.218619483625968,
+                            City = "Napoli",
+                            Country = "Italy",
                         },
                         Name = "Volkswagen Polo",
                         ImageUrl = "https://cdn2.rcstatic.com/images/car_images/web/volkswagen/polo_lrg.jpg",
@@ -239,7 +245,9 @@ namespace CarRent.Infrastructure
                         CurrentLocation = new Location
                         {
                             Latitude = 40.902552950411554,
-                            Longitude = 14.228190983116145
+                            Longitude = 14.228190983116145,
+                            City = "Napoli",
+                            Country = "Italy",
                         },
                         Name = "Kia Picanto",
                         ImageUrl = "https://cdn2.rcstatic.com/images/car_images/web/kia/picanto_lrg.jpg",
@@ -309,6 +317,8 @@ namespace CarRent.Infrastructure
                         {
                             Latitude = 40.84374487548638,                            
                             Longitude = 14.116159666387542,
+                            City = "Napoli",
+                            Country = "Italy",
                         },
                         Name = "Fiat 500X",
                         ImageUrl = "https://cdn2.rcstatic.com/images/car_images/web/fiat/500x_lrg.jpg",
@@ -378,6 +388,8 @@ namespace CarRent.Infrastructure
                         {
                             Latitude = 40.86842099315672,
                             Longitude = 14.350070565550771,
+                            City = "Napoli",
+                            Country = "Italy",
                         },
                         Name = "Opel Corsa",
                         ImageUrl = "https://cdn2.rcstatic.com/images/car_images/web/opel/corsa_lrg.jpg",
@@ -447,6 +459,8 @@ namespace CarRent.Infrastructure
                         {
                             Latitude = 40.8972331571794,                            
                             Longitude = 14.273681249799491,
+                            City = "Napoli",
+                            Country = "Italy",
                         },
                         Name = "Ford Fiesta",
                         ImageUrl = "https://cdn2.rcstatic.com/images/car_images/web/ford/fiesta_lrg.jpg",
@@ -516,6 +530,8 @@ namespace CarRent.Infrastructure
                         {
                             Latitude = 40.88075205808668,                            
                             Longitude = 14.404487224187077,
+                            City = "Napoli",
+                            Country = "Italy",
                         },
                         Name = "Fiat 500L",
                         ImageUrl = "https://cdn2.rcstatic.com/images/car_images/web/fiat/500l_lrg.jpg",

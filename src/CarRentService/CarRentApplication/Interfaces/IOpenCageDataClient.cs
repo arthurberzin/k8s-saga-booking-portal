@@ -9,6 +9,6 @@ namespace CarRent.Application.Interfaces
 {
     public interface IOpenCageDataClient
     {
-        Location GetLocationByName(string name);
+        (double,double) GetLocationByName(string name);
     }
 }
