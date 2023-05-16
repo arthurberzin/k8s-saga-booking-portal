@@ -6,6 +6,7 @@ The main goal of the project is to practice and review techniques and skills tha
 
 
 ## Tools & Technics Set
+- [FluentValidation](https://docs.fluentvalidation.net/en/latest/)
 - [gRPC](https://learn.microsoft.com/en-us/aspnet/core/grpc)
 - [AutoMapper](https://automapper.org/)
 - [Unit Tests](https://github.com/arthurberzin/k8s-saga-booking-portal/tree/main/tests)
@@ -25,6 +26,7 @@ The main goal of the project is to practice and review techniques and skills tha
 - In this project, a comprehensive Airlines Database Schema was implemented using `Entity Framework` and various configuration options. *More info in* [Airline Service](https://github.com/arthurberzin/k8s-saga-booking-portal/tree/main/src/AirlineService).
 - The [Options Pattern](https://learn.microsoft.com/en-us/dotnet/core/extensions/options) is utilized in the solution to retrieve application settings as an injectable model with settings. *Using of Options could be found in* [Car Rent Service](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/CarRentService/API/Program.cs).
 - The [gRPC](https://learn.microsoft.com/en-us/aspnet/core/grpc) was utilized to retrieve a large amount of data in a single cluster. It provides the ability to quickly retrieve a large amount of data without any problems caused by network instability.
+- The [Strategy pattern](https://en.wikipedia.org/wiki/Strategy_pattern) was utilized here to offer a flexible mechanism for modifying the filter condition. *Using is in* [airlines service](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/AirlineService/AirlineApplication/FilterStrategies/DepartureAndArrivalDateFilterStrategy.cs).
 
 ## Build Docker Images
 
