@@ -104,6 +104,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CarRent", "CarRent", "{1114
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppplicationTests", "tests\CarRent\AppplicationTests\AppplicationTests.csproj", "{D92964F2-87E3-4276-A60E-D28F025BE8A5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Airline", "Airline", "{73C34DBD-AEBF-4296-B891-92D10FFA69DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirlineApplication", "tests\Airline\AirlineApplication\AirlineApplication.csproj", "{588537D0-4032-453B-8137-8783EFA61A06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -226,6 +230,10 @@ Global
 		{D92964F2-87E3-4276-A60E-D28F025BE8A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D92964F2-87E3-4276-A60E-D28F025BE8A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D92964F2-87E3-4276-A60E-D28F025BE8A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{588537D0-4032-453B-8137-8783EFA61A06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{588537D0-4032-453B-8137-8783EFA61A06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{588537D0-4032-453B-8137-8783EFA61A06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{588537D0-4032-453B-8137-8783EFA61A06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -270,6 +278,8 @@ Global
 		{550D8F46-8765-4C56-A2B3-F8394981B61C} = {E3C5D8C5-1C07-499A-8AA1-A0B9DF2513BC}
 		{11140C03-B192-4F48-A728-01CEF9E8FD68} = {849484D8-756F-4ABA-96B8-569F2FBD334F}
 		{D92964F2-87E3-4276-A60E-D28F025BE8A5} = {11140C03-B192-4F48-A728-01CEF9E8FD68}
+		{73C34DBD-AEBF-4296-B891-92D10FFA69DE} = {849484D8-756F-4ABA-96B8-569F2FBD334F}
+		{588537D0-4032-453B-8137-8783EFA61A06} = {73C34DBD-AEBF-4296-B891-92D10FFA69DE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {76885609-D090-4027-AB63-FCA26D0235E0}

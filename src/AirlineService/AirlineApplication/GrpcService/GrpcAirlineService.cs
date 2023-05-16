@@ -3,44 +3,45 @@ using Airline.Application.Grpc;
 using AutoMapper;
 using Serilog;
 using Grpc.Core;
-using Ardalis.GuardClauses;
+using FluentValidation;
 
 namespace Airline.Application.GrpcService
 {
-    public  class GrpcAirlineService : FlightsService.FlightsServiceBase
+    public class GrpcAirlineService : FlightsService.FlightsServiceBase
     {
-        private readonly IUnitOfWork _unitOfWork;
-
         private readonly IMapper _mapper;
         private readonly ILogger _logger;
+        private readonly IFlightFilterStrategy _filterStrategy;
+        private readonly IValidator<FlightsRequest> _requestValidator;
 
-        public GrpcAirlineService(IUnitOfWork unitOfWork, IMapper mapper, ILogger logger)
+        public GrpcAirlineService(IMapper mapper, ILogger logger, IFlightFilterStrategy filterStrategy, IValidator<FlightsRequest> requestValidator)
         {
-            _unitOfWork = unitOfWork;
             _mapper = mapper;
             _logger = logger;
+            _filterStrategy = filterStrategy;
+            _requestValidator = requestValidator;
         }
 
         public override async Task<FlightsResponse> GetFlights(FlightsRequest request, ServerCallContext context)
         {
             try
             {
-                Guard.Against.Null(request, nameof(request));
-                Guard.Against.NullOrWhiteSpace(request.ArrivalLocation, nameof(request.ArrivalLocation));
-                Guard.Against.NullOrWhiteSpace(request.DepartureLocation, nameof(request.DepartureLocation));
-                Guard.Against.InvalidInput(request.To, "Arrival Date", to => to.ToDateTime() >= DateTime.UtcNow);
-                Guard.Against.InvalidInput(request.From, "Departure Date", From => From.ToDateTime() >= DateTime.UtcNow);
-                Guard.Against.InvalidInput(request, "Date Range", req => req.From < req.To, "The departure date must be earlier than the arrival date.");
+                var validationResult = _requestValidator.Validate(request);
+                if (!validationResult.IsValid)
+                {
+                    throw new RpcException(
+                        new Status(
+                            StatusCode.InvalidArgument,
+                            string.Join(", ", validationResult.Errors.Select(error => error.ErrorMessage))
+                            )
+                        );
+                }
 
                 var response = new FlightsResponse();
-                var res = await _unitOfWork.Flights.FindAsync(
-                    it => it.DepartureAirport.City == request.DepartureLocation
-                       && it.ArrivalAirport.City == request.ArrivalLocation
-                       && it.DepartureDateTime >= request.From.ToDateTime()
-                       && it.ArrivalDateTime <= request.To.ToDateTime(),
-                    context.CancellationToken);
 
-                response.Flights.AddRange(_mapper.Map<List<FlightData>>(res.ToList()));
+                var filteredFlights = await _filterStrategy.FilterFlightsAsync(request, context.CancellationToken);
+
+                response.Flights.AddRange(_mapper.Map<List<FlightData>>(filteredFlights.ToList()));
 
                 return response;
             }
