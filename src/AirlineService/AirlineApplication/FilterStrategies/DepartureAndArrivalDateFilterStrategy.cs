@@ -5,11 +5,11 @@ using System.Linq.Expressions;
 
 namespace Airline.Application.FilterStrategies
 {
-    public class DepartureAndArrivalDateFilterStrategy : IFlightFilterStrategy
+    public class DepartureAndArrivalLocationFilterStrategy : IFlightFilterStrategy
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public DepartureAndArrivalDateFilterStrategy(IUnitOfWork unitOfWork)
+        public DepartureAndArrivalLocationFilterStrategy(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }

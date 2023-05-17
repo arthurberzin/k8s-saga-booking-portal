@@ -11,13 +11,13 @@ namespace AirlineApplication
     public class FilterStrategyTests
     {
         private Mock<IUnitOfWork> _unitOfWorkMock;
-        private DepartureAndArrivalDateFilterStrategy _filterStrategy;
+        private DepartureAndArrivalLocationFilterStrategy _filterStrategy;
 
         [SetUp]
         public void Setup()
         {
             _unitOfWorkMock = new Mock<IUnitOfWork>();
-            _filterStrategy = new DepartureAndArrivalDateFilterStrategy(_unitOfWorkMock.Object);
+            _filterStrategy = new DepartureAndArrivalLocationFilterStrategy(_unitOfWorkMock.Object);
         }
 
 

@@ -27,7 +27,7 @@ namespace Airline.API
             
             builder.Host.UseSerilog();
             
-            builder.Services.AddScoped<IFlightFilterStrategy, DepartureAndArrivalDateFilterStrategy>();
+            builder.Services.AddScoped<IFlightFilterStrategy, DepartureAndArrivalLocationFilterStrategy>();
             builder.Services.AddScoped<IValidator<FlightsRequest>, FlightsRequestValidator>();
             
             builder.Services.AddHealthChecks()

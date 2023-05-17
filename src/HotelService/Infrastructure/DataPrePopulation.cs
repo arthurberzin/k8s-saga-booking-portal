@@ -25,10 +25,10 @@ namespace Hotel.Infrastructure
 
         private static void SeedData(ApplicationDbContext context)
         {
-            if (!context.Set<HotelData>().Any())
+            if (!context.Set<Models.Hotel>().Any())
             {
-                context.Set<HotelData>().AddRange(
-                    new HotelData() {
+                context.Set<Models.Hotel>().AddRange(
+                    new Models.Hotel() {
                         Id = Guid.NewGuid(),
                         Name = "Villa Yiara",
                         Address = "Viale Pasitea 294, 84017 Positano, Italy",
@@ -103,7 +103,7 @@ namespace Hotel.Infrastructure
                             new HotelImage{ ImageUrl = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/183613409.jpg?k=59afe9a1daea85eae9551ad7e7dccde06b35937bc7b01982b000de4558f3229c&o=&hp=1" }
                          } 
                     },
-                    new HotelData()
+                    new Models.Hotel()
                     {
                         Id = Guid.NewGuid(),
                         Name = "Alcione Residence",
@@ -179,7 +179,7 @@ namespace Hotel.Infrastructure
                             new HotelImage{ ImageUrl = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/149738616.jpg?k=a0200efa9f5d6e64d82d3318dba240b8fd35b0fded4b5451f8c4dd47fcb6a47d&o=&hp=1" }
                          }
                     },
-                    new HotelData()
+                    new Models.Hotel()
                     {
                         Id = Guid.NewGuid(),
                         Name = "Hotel Villa Bellavista",
@@ -255,7 +255,7 @@ namespace Hotel.Infrastructure
                             new HotelImage{ ImageUrl = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/172161697.jpg?k=48d1b6c37147101023b7c77f6ea3a43c9fcfb7942ac27499c18c188d08eff684&o=&hp=1" }
                          }
                     },
-                    new HotelData()
+                    new Models.Hotel()
                     {
                         Id = Guid.NewGuid(),
                         Name = "Vista d' Amalfi",
@@ -331,7 +331,7 @@ namespace Hotel.Infrastructure
                             new HotelImage{ ImageUrl = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/100378381.jpg?k=5af053b15e792c98fd6ba761844ff392c6a095b7a7e35d0255555c0d2ea7920c&o=&hp=1" }
                          }
                     },
-                    new HotelData()
+                    new Models.Hotel()
                     {
                         Id = Guid.NewGuid(),
                         Name = "Aquaboutique Wellness&Spa",

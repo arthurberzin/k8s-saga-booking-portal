@@ -1,6 +1,6 @@
 ﻿namespace Hotel.Models
 {
-    public class HotelData
+    public class Hotel
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

@@ -14,7 +14,7 @@ namespace Hotel.Infrastructure
 
         public DbSet<PeriodPrice> Periods => Set<PeriodPrice>();
 
-        public DbSet<HotelData> Hotels => Set<HotelData>();
+        public DbSet<Models.Hotel> Hotels => Set<Models.Hotel>();
         public DbSet<HotelImage> HotelImages => Set<HotelImage>();
         public DbSet<HotelOccupiedDate> HotelOccupateDates => Set<HotelOccupiedDate>();
 
@@ -33,9 +33,9 @@ namespace Hotel.Infrastructure
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
-            modelBuilder.Entity<HotelData>().Navigation(e => e.Prices).AutoInclude();
-            modelBuilder.Entity<HotelData>().Navigation(e => e.OccupiedDates).AutoInclude();
-            modelBuilder.Entity<HotelData>().Navigation(e => e.Images).AutoInclude();
+            modelBuilder.Entity<Models.Hotel>().Navigation(e => e.Prices).AutoInclude();
+            modelBuilder.Entity<Models.Hotel>().Navigation(e => e.OccupiedDates).AutoInclude();
+            modelBuilder.Entity<Models.Hotel>().Navigation(e => e.Images).AutoInclude();
         }
     }
 }

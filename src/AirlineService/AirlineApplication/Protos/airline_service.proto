@@ -32,6 +32,8 @@ message FlightsRequest {
   google.protobuf.Timestamp to = 2;
   string departure_location = 3;
   string arrival_location = 4;
+  int32 skip = 5;
+  int32 take = 6;
 }
 
 message FlightsResponse {

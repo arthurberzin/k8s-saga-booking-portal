@@ -2,7 +2,7 @@
 
 namespace Hotel.Application.Interfaces
 {
-    public interface IHotelRepository : IRepository<HotelData>
+    public interface IHotelRepository : IRepository<Models.Hotel>
     {
     }
 }

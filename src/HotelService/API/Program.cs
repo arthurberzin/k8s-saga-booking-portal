@@ -1,7 +1,14 @@
 using Core.Common;
 using Core.Common.HealthCheck;
+using FluentValidation;
+using Hotel.Application.FlitersStrategies;
+using Hotel.Application.Grpc;
 using Hotel.Application.Grpc.Service;
+using Hotel.Application.Interfaces;
+using Hotel.Application.Validation;
 using Hotel.Infrastructure;
+using System.Reflection;
+
 namespace Hotel.API
 {
     public class Program
@@ -16,6 +23,9 @@ namespace Hotel.API
             builder.Host.UseSerilog();
 
             builder.Services.AddGrpc();
+
+            builder.Services.AddScoped<IHotelFilterStrategy, DateHotelFilterStrategy>();
+            builder.Services.AddScoped<IValidator<HotelsRequest>, HotelRequestValidator>();
 
             builder.Services.AddHealthChecks()
                 .AddMemoryHealthCheck("Memory");

@@ -1,11 +1,15 @@
 using AutoMapper;
 using CarRent.Application;
+using CarRent.Application.FlitersStrategies;
+using CarRent.Application.Grpc;
 using CarRent.Application.GrpcService;
 using CarRent.Application.Interfaces;
+using CarRent.Application.Validators;
 using CarRent.Infrastructure;
 using CarRent.Models;
 using Core.Common;
 using Core.Common.HealthCheck;
+using FluentValidation;
 using Microsoft.Extensions.Options;
 
 namespace CarRent.API
@@ -23,6 +27,10 @@ namespace CarRent.API
 
             builder.Services.Configure<CarRentOptions>(builder.Configuration.GetSection("CarRentOptions"));
 
+            builder.Services.AddScoped<ICarFilterStrategy, CityAndDateFlitersStrategy>();
+            builder.Services.AddScoped<IValidator<CarsRequest>, CarsRequestValidator>();
+            // builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+
             builder.Services.AddHealthChecks()
                 .AddMemoryHealthCheck("Memory");
 
@@ -30,7 +38,10 @@ namespace CarRent.API
 
             builder.Services.AddInfrastructure();
 
-            builder.Services.AddGrpc();
+            builder.Services.AddGrpc(opt=> { 
+                opt.Interceptors.Add<FluentValidationInterceptor>();
+                opt.Interceptors.Add<LocationValidationInterceptor>();
+            });
 
             builder.Services.AddScoped<IDistanceCalculator, DistanceCalculator>();
             builder.Services.AddScoped<IOpenCageDataClient>(x => {                

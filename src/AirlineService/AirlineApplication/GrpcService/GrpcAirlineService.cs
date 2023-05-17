@@ -14,7 +14,10 @@ namespace Airline.Application.GrpcService
         private readonly IFlightFilterStrategy _filterStrategy;
         private readonly IValidator<FlightsRequest> _requestValidator;
 
-        public GrpcAirlineService(IMapper mapper, ILogger logger, IFlightFilterStrategy filterStrategy, IValidator<FlightsRequest> requestValidator)
+        public GrpcAirlineService(IMapper mapper, 
+            ILogger logger, 
+            IFlightFilterStrategy filterStrategy, 
+            IValidator<FlightsRequest> requestValidator)
         {
             _mapper = mapper;
             _logger = logger;

@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Hotel.Infrastructure.Config
 {
-    internal class HotelDataConfiguration : IEntityTypeConfiguration<HotelData>
+    internal class HotelDataConfiguration : IEntityTypeConfiguration<Models.Hotel>
     {
-        public void Configure(EntityTypeBuilder<HotelData> builder)
+        public void Configure(EntityTypeBuilder<Models.Hotel> builder)
         {
             builder.HasKey(it => it.Id);
             builder.Property(it => it.Id).IsRequired();  
