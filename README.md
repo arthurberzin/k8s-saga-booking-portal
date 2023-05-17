@@ -19,6 +19,7 @@ The main goal of the project is to practice and review techniques and skills tha
 - Integrate health check with k8s 'liveness'
 - Add EF context Health Check
 - Booking engine for Airline Service, implement time to book a place
+- Add functional of pagination
 
 ## Features
 - [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)  In this solution, you can find the use of Clean Architecture. The solution has different services with Clean Architecture structure.
@@ -26,7 +27,8 @@ The main goal of the project is to practice and review techniques and skills tha
 - In this project, a comprehensive Airlines Database Schema was implemented using `Entity Framework` and various configuration options. *More info in* [Airline Service](https://github.com/arthurberzin/k8s-saga-booking-portal/tree/main/src/AirlineService).
 - The [Options Pattern](https://learn.microsoft.com/en-us/dotnet/core/extensions/options) is utilized in the solution to retrieve application settings as an injectable model with settings. *Using of Options could be found in* [Car Rent Service](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/CarRentService/API/Program.cs).
 - The [gRPC](https://learn.microsoft.com/en-us/aspnet/core/grpc) was utilized to retrieve a large amount of data in a single cluster. It provides the ability to quickly retrieve a large amount of data without any problems caused by network instability.
-- The [Strategy pattern](https://en.wikipedia.org/wiki/Strategy_pattern) was utilized here to offer a flexible mechanism for modifying the filter condition. *Using is in* [airlines service](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/AirlineService/AirlineApplication/FilterStrategies/DepartureAndArrivalDateFilterStrategy.cs).
+- The [Strategy pattern](https://en.wikipedia.org/wiki/Strategy_pattern) was utilized here to offer a flexible mechanism for modifying the filter condition. *Using is in* [airlines service](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/AirlineService/AirlineApplication/FilterStrategies/DepartureAndArrivalDateFilterStrategy.cs), [car rent service](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/CarRentService/CarRentApplication/FlitersStrategies/CityAndDateFlitersStrategy.cs) and [hotel rent service](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/HotelService/HotelApplication/FlitersStrategies/DateHotelFilterStrategy.cs).
+- In the solution, you will find the use of [FluentValidation](https://docs.fluentvalidation.net/en/latest/) in two different contexts. It is used as a fundamental component in the [airline service](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/AirlineService/AirlineApplication/Validators/FlightsRequestValidator.cs), and it is employed as an interceptor in the [car rental service](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/CarRentService/CarRentApplication/GrpcService/FluentValidationInterceptor.cs), making it more complex.
 
 ## Build Docker Images
 
