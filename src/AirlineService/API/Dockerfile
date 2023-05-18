@@ -9,7 +9,7 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ["src/AirlineService/API/Airline.API.csproj", "src/AirlineService/API/"]
 COPY ["src/AirlineService/AirlineApplication/Airline.Application.csproj", "src/AirlineService/AirlineApplication/"]
-COPY ["src/Core/Models/Core.Models.csproj", "src/Core/Models/"]
+COPY ["src/AirlineService/Infrastructure/Airline.Infrastructure.csproj", "src/AirlineService/Infrastructure/"]
 COPY ["src/AirlineService/AirlineModels/Airline.Models.csproj", "src/AirlineService/AirlineModels/"]
 RUN dotnet restore "src/AirlineService/API/Airline.API.csproj"
 COPY . .
