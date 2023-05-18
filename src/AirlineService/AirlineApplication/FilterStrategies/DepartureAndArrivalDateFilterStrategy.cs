@@ -24,8 +24,8 @@ namespace Airline.Application.FilterStrategies
         {
             return flight => flight.DepartureAirport.City.ToLower() == request.DepartureLocation.ToLower()
                     && flight.ArrivalAirport.City.ToLower() == request.ArrivalLocation.ToLower()
-                    && flight.DepartureDateTime >= request.From.ToDateTime()
-                    && flight.ArrivalDateTime <= request.To.ToDateTime();
+                    && flight.DepartureDateTime.Date >= request.From.ToDateTime().Date
+                    && flight.ArrivalDateTime.Date <= request.To.ToDateTime().Date;
         }
     }
 

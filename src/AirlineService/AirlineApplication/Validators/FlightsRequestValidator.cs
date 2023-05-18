@@ -14,12 +14,12 @@ namespace Airline.Application.Validators
                 .NotEmpty().WithMessage("Departure location must be provided.");
 
             RuleFor(request => request.To.ToDateTime())
-                .Must(to => to >= DateTime.UtcNow)
-                .WithMessage("Arrival date must be in the future or today.");
+                .Must(to => to.Date > DateTime.UtcNow.Date)
+                .WithMessage("Departure date must be in the future.");
 
             RuleFor(request => request.From.ToDateTime())
-                .Must(from => from >= DateTime.UtcNow)
-                .WithMessage("Departure date must be in the future or today.");
+                .Must(from => from.Date >= DateTime.UtcNow.Date)
+                .WithMessage("Arrival date must be in the future or today.");
 
             RuleFor(request => request)
                 .Must(req => req.From < req.To)

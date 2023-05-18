@@ -28,8 +28,8 @@ namespace AirlineApplication
             {
                 ArrivalLocation = "City A",
                 DepartureLocation = "City B",
-                From = Timestamp.FromDateTime( DateTime.UtcNow.AddMinutes(1)),
-                To = Timestamp.FromDateTime(DateTime.UtcNow.AddHours(1))
+                From = Timestamp.FromDateTime( DateTime.UtcNow),
+                To = Timestamp.FromDateTime(DateTime.UtcNow.AddDays(1))
             };
 
             // Act
@@ -85,8 +85,28 @@ namespace AirlineApplication
             {
                 ArrivalLocation = "City A",
                 DepartureLocation = "City B",
-                From = Timestamp.FromDateTime(DateTime.UtcNow.AddMinutes(1)),
-                To = Timestamp.FromDateTime(DateTime.UtcNow.AddHours(-1)) // Set the arrival date in the past
+                From = Timestamp.FromDateTime(DateTime.UtcNow),
+                To = Timestamp.FromDateTime(DateTime.UtcNow.AddDays(-1)) // Set the arrival date in the past
+            };
+
+            // Act
+            var result = _validator.Validate(request);
+
+            // Assert
+            Assert.IsFalse(result.IsValid);
+            Assert.AreEqual("Departure date must be in the future.", result.Errors[0].ErrorMessage);
+        }
+
+        [Test]
+        public void Validate_WithInvalidDepartureDate_ShouldFailValidation()
+        {
+            // Arrange
+            var request = new FlightsRequest
+            {
+                ArrivalLocation = "City A",
+                DepartureLocation = "City B",
+                From = Timestamp.FromDateTime(DateTime.UtcNow.AddDays(-1)), // Set the departure date in the past
+                To = Timestamp.FromDateTime(DateTime.UtcNow.AddDays(1))
             };
 
             // Act
@@ -98,26 +118,6 @@ namespace AirlineApplication
         }
 
         [Test]
-        public void Validate_WithInvalidDepartureDate_ShouldFailValidation()
-        {
-            // Arrange
-            var request = new FlightsRequest
-            {
-                ArrivalLocation = "City A",
-                DepartureLocation = "City B",
-                From = Timestamp.FromDateTime(DateTime.UtcNow.AddHours(-1)), // Set the departure date in the past
-                To = Timestamp.FromDateTime(DateTime.UtcNow.AddHours(1))
-            };
-
-            // Act
-            var result = _validator.Validate(request);
-
-            // Assert
-            Assert.IsFalse(result.IsValid);
-            Assert.AreEqual("Departure date must be in the future or today.", result.Errors[0].ErrorMessage);
-        }
-
-        [Test]
         public void Validate_WithInvalidDateRange_ShouldFailValidation()
         {
             // Arrange
@@ -125,8 +125,8 @@ namespace AirlineApplication
             {
                 ArrivalLocation = "City A",
                 DepartureLocation = "City B",
-                From = Timestamp.FromDateTime(DateTime.UtcNow.AddHours(2)), // Set the departure date after the arrival date
-                To = Timestamp.FromDateTime(DateTime.UtcNow.AddHours(1))
+                From = Timestamp.FromDateTime(DateTime.UtcNow.AddDays(2)), // Set the departure date after the arrival date
+                To = Timestamp.FromDateTime(DateTime.UtcNow.AddDays(1))
             };
 
             // Act

@@ -28,8 +28,8 @@ namespace CarRent.Application.FlitersStrategies
             return car => car.CurrentLocation.Country.ToLower() == request.Country.ToLower() &&
                           car.CurrentLocation.City.ToLower() == request.City.ToLower() &&
                          !car.OccupiedDates.Any(
-                             dt => dt.OccupateDate >= request.From.ToDateTime() &&
-                                   dt.OccupateDate <= request.To.ToDateTime());
+                             dt => dt.OccupateDate.Date >= request.From.ToDateTime().Date &&
+                                   dt.OccupateDate.Date <= request.To.ToDateTime().Date);
         }
     }
 }

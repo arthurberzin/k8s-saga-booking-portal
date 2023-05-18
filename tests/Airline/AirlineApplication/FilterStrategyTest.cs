@@ -64,6 +64,14 @@ namespace AirlineApplication
                 ArrivalDateTime = DateTime.UtcNow.AddHours(3)
             };
 
+            var matchingFlight4 = new Flight
+            {
+                DepartureAirport = new Airport { City = "City A" },
+                ArrivalAirport = new Airport { City = "City B" },
+                DepartureDateTime = DateTime.UtcNow.AddHours(-2),
+                ArrivalDateTime = DateTime.UtcNow.AddHours(2)
+            };
+
             var nonMatchingFlight1 = new Flight
             {
                 DepartureAirport = new Airport { City = "City C" },
@@ -88,22 +96,14 @@ namespace AirlineApplication
                 ArrivalDateTime = DateTime.UtcNow.AddHours(2)
             };
 
-            var nonMatchingFlight4 = new Flight
-            {
-                DepartureAirport = new Airport { City = "City A" },
-                ArrivalAirport = new Airport { City = "City B" },
-                DepartureDateTime = DateTime.UtcNow.AddHours(-2),
-                ArrivalDateTime = DateTime.UtcNow.AddHours(2)
-            };
-
             // Assert
             Assert.IsTrue(matchFunction(matchingFlight1));
             Assert.IsTrue(matchFunction(matchingFlight2));
             Assert.IsTrue(matchFunction(matchingFlight3));
+            Assert.IsTrue(matchFunction(matchingFlight4));
             Assert.IsFalse(matchFunction(nonMatchingFlight1));
             Assert.IsFalse(matchFunction(nonMatchingFlight2));
             Assert.IsFalse(matchFunction(nonMatchingFlight3));
-            Assert.IsFalse(matchFunction(nonMatchingFlight4));
         }
     }
     }

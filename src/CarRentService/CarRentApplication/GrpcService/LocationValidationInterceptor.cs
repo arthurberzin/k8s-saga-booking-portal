@@ -29,32 +29,35 @@ namespace CarRent.Application.GrpcService
             ServerCallContext context,
             UnaryServerMethod<TRequest, TResponse> continuation)
         {
-
-            var req = request as CarsRequest;
-            if (req is null)
+            if (request is CarsRequest)
             {
-                string message = "Request is empty.";
-                _logger.Error(message);
-                throw new RpcException(new Status(StatusCode.InvalidArgument, message));
-            }
-
-            if (req.Latitude == 0 || req.Longitude == 0)
-            {
-                if (string.IsNullOrEmpty(req.Location) is false)
+                var req = request as CarsRequest;
+                if (req is null)
                 {
-                    (req.Latitude, req.Longitude) = _openCageDataClient.GetLocationByName(req.Location);
+                    string message = "Request is empty.";
+                    _logger.Error(message);
+                    throw new RpcException(new Status(StatusCode.InvalidArgument, message));
                 }
-                else if (string.IsNullOrEmpty(req.Country) is false && string.IsNullOrEmpty(req.City) is false)
-                {
-                    (req.Latitude, req.Longitude) = _openCageDataClient.GetLocationByName($"{req.Country}, {req.City}");
-                }
-            }
 
-            if (req.Latitude == 0 || req.Longitude == 0)
-            {
-                var message = $"Invalid input parameters. location: '{req.Location}', Latitude: '{req.Latitude}', Longitude: '{req.Longitude}', Country: '{req.Country}', City: '{req.City}' ";
-                _logger.Error(message);
-                throw new RpcException(new Status(StatusCode.InvalidArgument, message));
+                if (req.Latitude == 0 || req.Longitude == 0)
+                {
+                    if (string.IsNullOrEmpty(req.Location) is false)
+                    {
+                        (req.Latitude, req.Longitude) = _openCageDataClient.GetLocationByName(req.Location);
+                    }
+                    else if (string.IsNullOrEmpty(req.Country) is false && string.IsNullOrEmpty(req.City) is false)
+                    {
+                        (req.Latitude, req.Longitude) = _openCageDataClient.GetLocationByName($"{req.Country}, {req.City}");
+                    }
+                }
+
+                if (req.Latitude == 0 || req.Longitude == 0)
+                {
+                    var message = $"Invalid input parameters. location: '{req.Location}', Latitude: '{req.Latitude}', Longitude: '{req.Longitude}', Country: '{req.Country}', City: '{req.City}';";
+                    _logger.Error(message);
+                    throw new RpcException(new Status(StatusCode.InvalidArgument, message));
+                }
+
             }
 
             return await continuation(request, context);

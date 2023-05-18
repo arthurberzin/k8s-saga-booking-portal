@@ -18,17 +18,23 @@ namespace CarRent.Application.Validators
             RuleFor(request => request.City)
                 .NotEmpty().WithMessage("City must be provided.");
 
-            RuleFor(request => request.To.ToDateTime())
-                .Must(to => to >= DateTime.UtcNow)
-                .WithMessage("Start rent date must be in the future or today.");
+            RuleFor(request => request.From)
+    .           NotEmpty().WithMessage("Start rent date must be provided.");
+
+            RuleFor(request => request.To)
+                .NotEmpty().WithMessage("Complite rent date must be provided.");
 
             RuleFor(request => request.From.ToDateTime())
-                .Must(from => from >= DateTime.UtcNow)
-                .WithMessage("Complite rent date must be in the future or today.");
+                .Must(from => from.Date >= DateTime.UtcNow.Date)
+                .WithMessage("Start rent date must be in the future or today.").When(request => request.From != null);
+
+            RuleFor(request => request.To.ToDateTime())
+                .Must(to => to.Date > DateTime.UtcNow.Date)
+                .WithMessage("Complite rent date must be in the future.").When(request => request.To != null);
 
             RuleFor(request => request)
                 .Must(req => req.From < req.To)
-                .WithMessage("The start rent date must be earlier than the complite rent date.");
+                .WithMessage("The start rent date must be earlier than the complite rent date.").When(request => request.From != null && request.To != null);
 
         }
     }

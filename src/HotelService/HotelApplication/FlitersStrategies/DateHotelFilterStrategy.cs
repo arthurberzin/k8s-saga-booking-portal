@@ -28,8 +28,8 @@ namespace Hotel.Application.FlitersStrategies
             return  hotel => hotel.City.ToLower() == request.City.ToLower() &&
                         hotel.Country.ToLower() == request.Country.ToLower() &&
                         !hotel.OccupiedDates.Any(
-                            dt =>   dt.OccupateDate >= request.From.ToDateTime() && 
-                                    dt.OccupateDate <= request.To.ToDateTime());
+                            dt =>   dt.OccupateDate.Date >= request.From.ToDateTime().Date && 
+                                    dt.OccupateDate.Date <= request.To.ToDateTime().Date);
         }
     }
 }
