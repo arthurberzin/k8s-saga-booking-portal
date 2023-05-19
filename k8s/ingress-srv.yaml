@@ -1,0 +1,22 @@
+# Ingress Webportal
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: webportal-ingress
+  namespace: booking-nm
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  rules:
+    - host: bookingportal.com 
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: webportal-clusterip-srv
+                port:
+                  number: 80

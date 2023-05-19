@@ -108,9 +108,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Airline", "Airline", "{73C3
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AirlineApplication", "tests\Airline\AirlineApplication\AirlineApplication.csproj", "{588537D0-4032-453B-8137-8783EFA61A06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelApplicationTests", "tests\Hotel\HotelApplicationTests\HotelApplicationTests.csproj", "{2B2646A1-EAE7-4908-95D4-3B6D2CE54C16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelApplicationTests", "tests\Hotel\HotelApplicationTests\HotelApplicationTests.csproj", "{2B2646A1-EAE7-4908-95D4-3B6D2CE54C16}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hotel", "Hotel", "{97EFC138-8543-4BBF-8BF5-39F1B5C4CFD2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k8s", "k8s", "{AA48285E-EF40-4E33-A67F-E27286EE0682}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\deploy-communication-layer.yaml = k8s\deploy-communication-layer.yaml
+		k8s\deploy-k8s.bat = k8s\deploy-k8s.bat
+		k8s\deploy-services.yaml = k8s\deploy-services.yaml
+		k8s\destroy-k8s.bat = k8s\destroy-k8s.bat
+		k8s\ingress-srv.yaml = k8s\ingress-srv.yaml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

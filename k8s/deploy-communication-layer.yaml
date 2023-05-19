@@ -1,0 +1,126 @@
+# Namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: booking-nm
+
+# RabbitMQ Deployment and Service
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: booking-rabbit
+  namespace: booking-nm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rabbitmq
+  template:
+    metadata:
+      labels:
+        app: rabbitmq
+    spec:
+      containers:
+        - name: rabbitmq
+          image: rabbitmq:3-management
+          ports:
+            - containerPort: 5672
+              name: amqp
+            - containerPort: 15672
+              name: management
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: booking-rabbit
+  namespace: booking-nm
+spec:
+  selector:
+    app: rabbitmq
+  ports:
+    - protocol: TCP
+      port: 5672
+      targetPort: 5672
+      name: amqp
+    - protocol: TCP
+      port: 15672
+      targetPort: 15672
+      name: management
+
+# Database Deployment and Services
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mssql
+  namespace: booking-nm
+type: Opaque
+data:
+  SA_PASSWORD: NXgwaTlPZ0QxZkxsTW0xbWJNMlI2cmRRJkAhQjhEZlNycmpCWUl5cw==
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mssql-bk-claim
+  namespace: booking-nm
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mssql-bk-depl
+  namespace: booking-nm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mssql
+  template:
+    metadata:
+      labels:
+        app: mssql
+    spec:
+      containers:
+        - name: mssql
+          image: mcr.microsoft.com/mssql/server:2017-latest
+          ports:
+            - containerPort: 1433
+          env:
+            - name: MSSQL_PID
+              value: "Express"
+            - name: ACCEPT_EULA
+              value: "Y"
+            - name: SA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mssql
+                  key: SA_PASSWORD
+          volumeMounts:
+            - mountPath: /var/opt/mssql/data
+              name: mssqldb
+      volumes:
+        - name: mssqldb
+          persistentVolumeClaim:
+            claimName: mssql-bk-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mssql-bk-clusterip-srv
+  namespace: booking-nm
+spec:
+  type: ClusterIP
+  selector:
+    app: mssql
+  ports:
+    - name: mssql
+      protocol: TCP
+      port: 1433
+      targetPort: 1433

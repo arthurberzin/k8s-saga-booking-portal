@@ -30,6 +30,32 @@ The main goal of the project is to practice and review techniques and skills tha
 - The [Strategy pattern](https://en.wikipedia.org/wiki/Strategy_pattern) was utilized here to offer a flexible mechanism for modifying the filter condition. *Using is in* [airlines service](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/AirlineService/AirlineApplication/FilterStrategies/DepartureAndArrivalDateFilterStrategy.cs), [car rent service](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/CarRentService/CarRentApplication/FlitersStrategies/CityAndDateFlitersStrategy.cs) and [hotel rent service](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/HotelService/HotelApplication/FlitersStrategies/DateHotelFilterStrategy.cs).
 - In the solution, you will find the use of [FluentValidation](https://docs.fluentvalidation.net/en/latest/) in two different contexts. It is used as a fundamental component in the [airline service](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/AirlineService/AirlineApplication/Validators/FlightsRequestValidator.cs), and it is employed as an interceptor in the [car rental service](https://github.com/arthurberzin/k8s-saga-booking-portal/blob/main/src/CarRentService/CarRentApplication/GrpcService/FluentValidationInterceptor.cs), making it more complex.
 
+## Kubernetes
+
+### Run application
+
+##### 1) Update Host File
+###### *C:\Windows\System32\drivers\etc\host*
+
+```notepud
+127.0.0.1 bookingportal.com
+```
+
+
+##### 2) Run bat script
+###### *Go to [solutionfolder]\k8s*
+```powershell
+.\deploy-k8s.bat
+```
+
+###### 3) Go to [bookingportal.com](bookingportal.com)
+
+### Destroy application
+###### *Go to [solutionfolder]\k8s*
+```powershell
+.\destroy-k8s.bat
+```
+
 ## Build Docker Images
 
 #### Booking Portal

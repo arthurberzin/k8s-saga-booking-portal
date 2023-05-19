@@ -1,0 +1,181 @@
+# WebPortal Deployment and Service
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webportal-depl
+  namespace: booking-nm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webportal
+  template:
+    metadata:
+      labels:
+        app: webportal
+    spec:
+      containers:
+        - name: webportal
+          image: berart/webportal:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webportal-clusterip-srv
+  namespace: booking-nm
+spec:
+  selector:
+    app: webportal
+  type: ClusterIP
+  ports:
+    - name: webportal
+      protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webportal-srv
+  namespace: booking-nm
+spec:
+  type: NodePort
+  selector:
+    app: webportal
+  ports:
+    - name: webportal
+      protocol: TCP
+      port: 80
+      targetPort: 80
+
+
+# Hotel Service Deployment and Service
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hotels-service
+  namespace: booking-nm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hotels-service
+  template:
+    metadata:
+      labels:
+        app: hotels-service
+    spec:
+      containers:
+        - name: hotels-service
+          image:  berart/hotelapi:latest
+          ports:
+            - containerPort: 8333 # gRPC port
+            - containerPort: 8030 # web API port
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hotels-clusterip-srv
+  namespace: booking-nm
+spec:
+  selector:
+    app: hotels-service
+  ports:
+    - name: grpc
+      protocol: TCP
+      port: 8333
+      targetPort: 8333
+    - name: webapi
+      protocol: TCP
+      port: 8030
+      targetPort: 8030
+
+
+# CarRent Deployment and Service
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: car-rent-service
+  namespace: booking-nm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: car-rent-service
+  template:
+    metadata:
+      labels:
+        app: car-rent-service
+    spec:
+      containers:
+        - name: car-rent-service
+          image:  berart/carrentapi:latest
+          ports:
+            - containerPort: 8222 # gRPC port
+            - containerPort: 8020 # web API port
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: car-rent-clusterip-srv
+  namespace: booking-nm
+spec:
+  selector:
+    app: car-rent-service
+  ports:
+    - name: grpc
+      protocol: TCP
+      port: 8222
+      targetPort: 8222
+    - name: webapi
+      protocol: TCP
+      port: 8020
+      targetPort: 8020
+
+# Airline Deployment and Service
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: airlines-service
+  namespace: booking-nm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: airlines-service
+  template:
+    metadata:
+      labels:
+        app: airlines-service
+    spec:
+      containers:
+        - name: airlines-service
+          image:  berart/airlineapi:latest
+          ports:
+            - containerPort: 8111 # gRPC port
+            - containerPort: 8010 # web API port
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: airlines-clusterip-srv
+  namespace: booking-nm
+spec:
+  selector:
+    app: airlines-service
+  ports:
+    - name: grpc
+      protocol: TCP
+      port: 8111
+      targetPort: 8111
+    - name: webapi
+      protocol: TCP
+      port: 8010
+      targetPort: 8010
