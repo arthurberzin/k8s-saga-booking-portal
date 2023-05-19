@@ -1,3 +1,5 @@
+using Booking.Infrastructure;
+using Booking.Models;
 using Core.Common;
 using Core.Common.HealthCheck;
 
@@ -10,13 +12,16 @@ namespace Booking.API
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.Configure<BookingOptions>(builder.Configuration.GetSection("ApplicationOptions"));
 
             builder.Services.AddControllers();
             builder.Host.UseSerilog();
 
             builder.Services.AddHealthChecks()
-                .AddMemoryHealthCheck("Memory");
-                //.AddDbContextCheck<Context>();
+                .AddMemoryHealthCheck("Memory")
+                .AddDbContextCheck<ApplicationDbContext>();
+
+            builder.Services.AddInfrastructure();
 
             var app = builder.Build();
 
@@ -27,6 +32,9 @@ namespace Booking.API
             app.UseAuthorization();
 
             app.UseCustomHealthChecks();
+
+            app.MigrateDatabase();
+            app.UseDataPrePopulation();
 
             app.Run();
         }
