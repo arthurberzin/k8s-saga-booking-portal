@@ -8,13 +8,22 @@ namespace Booking.Infrastructure.Context
         private readonly DbContext _context;
 
         public UnitOfWork(DbContext context,
-            IUserRepository userRepository)
+            IUserRepository userRepository,
+            ICarBookingRepository carBookingRepository,
+            IFlightBookingRepository flightBookingRepository,
+            IHotelBookingRepository hotelBookingRepository)
         {
             _context = context;
             Users = userRepository;
+            CarBookings = carBookingRepository;
+            FlightBookings = flightBookingRepository;
+            HotelBookings = hotelBookingRepository;
         }
 
         public IUserRepository Users { get; private set; }
+        public ICarBookingRepository CarBookings { get; private set; }
+        public IFlightBookingRepository FlightBookings { get; private set; }
+        public IHotelBookingRepository HotelBookings { get; private set; }
 
         public int Complete()
         {

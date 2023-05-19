@@ -15,6 +15,9 @@ namespace Booking.Infrastructure
             services.AddDbContext<DbContext, ApplicationDbContext>(options => {
                 options.UseSqlServer(appOptions.Value.ConnectionString); 
             });
+            services.AddScoped<ICarBookingRepository, CarBookingRepository>();
+            services.AddScoped<IHotelBookingRepository, HotelBookingRepository>();
+            services.AddScoped<IFlightBookingRepository, FlightBookingRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 

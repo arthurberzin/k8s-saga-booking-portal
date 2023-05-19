@@ -10,7 +10,9 @@ namespace Booking.Infrastructure.Config
         {
             builder.HasKey(it => it.Id);
             builder.Property(it => it.Id).IsRequired();
-            
+            builder.HasMany(it=>it.CarBookings).WithOne().HasForeignKey(it=>it.UserId);
+            builder.HasMany(it=>it.HotelBookings).WithOne().HasForeignKey(it=>it.UserId);
+            builder.HasMany(it=>it.FlightBookings).WithOne().HasForeignKey(it=>it.UserId);
         }
     }
 }

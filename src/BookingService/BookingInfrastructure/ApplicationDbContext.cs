@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Booking.Models;
+using Booking.Application.Interfaces;
 
 namespace Booking.Infrastructure
 {
@@ -18,6 +19,10 @@ namespace Booking.Infrastructure
         }
 
         public DbSet<User> Users => Set<User>();
+        public DbSet<CarBooking> CarBookings => Set<CarBooking>();
+        public DbSet<FlightBooking> FlightBookings => Set<FlightBooking>();
+        public DbSet<HotelBooking> HotelBookings => Set<HotelBooking>();
+
 
         public override int SaveChanges()
         {
