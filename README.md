@@ -10,7 +10,7 @@ The main goal of the project is to practice and review techniques and skills tha
 - [gRPC](https://learn.microsoft.com/en-us/aspnet/core/grpc)
 - [AutoMapper](https://automapper.org/)
 - [Unit Tests](https://github.com/arthurberzin/k8s-saga-booking-portal/tree/main/tests)
-- [Entity Framework Core](https://learn.microsoft.com/en-us/ef/core/) , [In-Memory](https://learn.microsoft.com/en-us/ef/core/providers/in-memory), [Eager Loading](https://learn.microsoft.com/en-us/ef/core/querying/related-data/eager)
+- [Entity Framework Core](https://learn.microsoft.com/en-us/ef/core/), [SQL Server](https://learn.microsoft.com/en-us/ef/core/providers/sql-server), [In-Memory](https://learn.microsoft.com/en-us/ef/core/providers/in-memory), [Eager Loading](https://learn.microsoft.com/en-us/ef/core/querying/related-data/eager)
 - [Health Checks](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/health-checks) for 'liveness' , memory chech
 - [Serilog](https://serilog.net/)
 
