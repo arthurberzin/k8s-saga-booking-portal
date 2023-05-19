@@ -48,7 +48,7 @@ The main goal of the project is to practice and review techniques and skills tha
 .\deploy-k8s.bat
 ```
 
-###### 3) Go to [bookingportal.com](bookingportal.com)
+##### 3) Go to [bookingportal.com](bookingportal.com)
 
 ### Destroy application
 ###### *Go to [solutionfolder]\k8s*
@@ -58,42 +58,42 @@ The main goal of the project is to practice and review techniques and skills tha
 
 ## Build Docker Images
 
-#### Booking Portal
+##### Booking Portal
 ```powershell
 docker build -f src\WebPortal\Portal\Dockerfile -t <docker hub id>/webportal .
 ```
 
-#### Supportal 
+##### Supportal 
 ```powershell
  docker build -f src\Supportal\Portal\Dockerfile -t <docker hub id>/supportal .
 ```
 
-#### RabbitMQ
+##### RabbitMQ
 ```powershell
 docker pull rabbitmq
 ```
 
-#### Booking Service 
+##### Booking Service 
 ```powershell
 docker build -f src\BookingService\API\Dockerfile -t <docker hub id>/bookingapi .
 ```
 
-#### Billing Service 
+##### Billing Service 
 ```powershell
 docker build -f src\BillingService\API\Dockerfile -t <docker hub id>/billingapi .
 ```
 
-#### Hotel Service 
+##### Hotel Service 
 ```powershell
 docker build -f src\HotelService\API\Dockerfile -t <docker hub id>/hotelapi .
 ```
 
-#### Car Rent Service 
+##### Car Rent Service 
 ```powershell
 docker build -f src\CarRentService\API\Dockerfile -t <docker hub id>/carrentapi .
 ```
 
-#### Airline Service
+##### Airline Service
 ```powershell
 docker build -f src\AirlineService\API\Dockerfile -t <docker hub id>/airlineapi .
 ```
@@ -103,43 +103,43 @@ docker build -f src\AirlineService\API\Dockerfile -t <docker hub id>/airlineapi 
 
 ## Run Docker Images
 
-#### Booking Portal
+##### Booking Portal
 ```powershell
 docker run -p 8080:80 -d <docker hub id>/webportal
 ```
 
-#### Supportal
+##### Supportal
 ```powershell
 docker run -p 8070:80 -d <docker hub id>/supportal
 ```
 
-#### RabbitMQ
+##### RabbitMQ
 ```powershell
 docker run -d --hostname my-rabbit --name booking-rabbit -p 8660:15672 -p 8060:5672 rabbitmq:3-management
 ```
 > RabbitMQ portal [http://localhost:8660](http://localhost:8660) default credentials of guest/guest.
 
-#### Booking Service 
+##### Booking Service 
 ```powershell
 docker run -p 8050:80 -d <docker hub id>/bookingapi
 ```
 
-#### Billing Service 
+##### Billing Service 
 ```powershell
 docker run -p 8040:80 -d <docker hub id>/billingapi
 ```
 
-#### Hotel Service 
+##### Hotel Service 
 ```powershell
 docker run -p 8030:80 -d <docker hub id>/hotelapi
 ```
 
-#### Car Rent Service  
+##### Car Rent Service  
 ```powershell
 docker run -p 8020:80 -d <docker hub id>/carrentapi
 ```
 
-#### Airline Service
+##### Airline Service
 ```powershell
 docker run -p 8010:80 -d <docker hub id>/airlineapi
 ```
