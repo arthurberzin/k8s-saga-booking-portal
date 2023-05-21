@@ -1,5 +1,5 @@
 REM To use this script you should set your docker hub id. This script work only on windows muchine.
-SET DOCKERHUBID=<docker hub id>
+SET DOCKERHUBID=berart
 
 docker run --name webportal -p 8080:80 -d %DOCKERHUBID%/webportal
 

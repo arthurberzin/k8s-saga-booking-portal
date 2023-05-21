@@ -8,8 +8,9 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ["src/BookingService/API/Booking.API.csproj", "src/BookingService/API/"]
-COPY ["src/BookingService/BookingApplication/Booking.Application.csproj", "src/BookingService/BookingApplication/"]
+COPY ["src/Core/Common/Core.Common.csproj", "src/Core/Common/"]
 COPY ["src/Core/Models/Core.Models.csproj", "src/Core/Models/"]
+COPY ["src/BookingService/BookingApplication/Booking.Application.csproj", "src/BookingService/BookingApplication/"]
 COPY ["src/BookingService/BookingModels/Booking.Models.csproj", "src/BookingService/BookingModels/"]
 COPY ["src/BookingService/BookingInfrastructure/Booking.Infrastructure.csproj", "src/BookingService/BookingInfrastructure/"]
 RUN dotnet restore "src/BookingService/API/Booking.API.csproj"
