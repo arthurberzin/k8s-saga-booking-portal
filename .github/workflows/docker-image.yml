@@ -27,10 +27,10 @@ jobs:
       - name: Build and push Docker images
         run: |
           docker buildx create --use
-          docker buildx build --platform linux/amd64 --push -t $DOCKERHUB_USERNAME/airlineapi:$GITHUB_SHA -f src/AirlineService/API/Dockerfile .
-          docker buildx build --platform linux/amd64 --push -t $DOCKERHUB_USERNAME/carrentapi:$GITHUB_SHA -f src/CarRentService/API/Dockerfile .
-          docker buildx build --platform linux/amd64 --push -t $DOCKERHUB_USERNAME/hotelapi:$GITHUB_SHA -f src/HotelService/API/Dockerfile .
-          docker buildx build --platform linux/amd64 --push -t $DOCKERHUB_USERNAME/billingapi:$GITHUB_SHA -f src/BillingService/API/Dockerfile .
-          docker buildx build --platform linux/amd64 --push -t $DOCKERHUB_USERNAME/bookingapi:$GITHUB_SHA -f src/BookingService/API/Dockerfile .
-          docker buildx build --platform linux/amd64 --push -t $DOCKERHUB_USERNAME/supportal:$GITHUB_SHA -f src/Supportal/Portal/Dockerfile .
-          docker buildx build --platform linux/amd64 --push -t $DOCKERHUB_USERNAME/webportal:$GITHUB_SHA -f src/WebPortal/Portal/Dockerfile .
+          docker buildx build --platform linux/amd64 --push -t $DOCKERHUB_USERNAME/airlineapi -f src/AirlineService/API/Dockerfile .
+          docker buildx build --platform linux/amd64 --push -t $DOCKERHUB_USERNAME/carrentapi -f src/CarRentService/API/Dockerfile .
+          docker buildx build --platform linux/amd64 --push -t $DOCKERHUB_USERNAME/hotelapi -f src/HotelService/API/Dockerfile .
+          docker buildx build --platform linux/amd64 --push -t $DOCKERHUB_USERNAME/billingapi -f src/BillingService/API/Dockerfile .
+          docker buildx build --platform linux/amd64 --push -t $DOCKERHUB_USERNAME/bookingapi -f src/BookingService/API/Dockerfile .
+          docker buildx build --platform linux/amd64 --push -t $DOCKERHUB_USERNAME/supportal -f src/Supportal/Portal/Dockerfile .
+          docker buildx build --platform linux/amd64 --push -t $DOCKERHUB_USERNAME/webportal -f src/WebPortal/Portal/Dockerfile .
