@@ -57,16 +57,16 @@ The main goal of the project is to practice and review techniques and skills tha
 .\destroy-k8s.bat
 ```
 
-## Build Docker Images
+## Build & Push Docker Images
 
 ##### Booking Portal
 ```powershell
-docker build -f src\WebPortal\Portal\Dockerfile -t <docker hub id>/webportal .
+docker buildx build --platform linux/amd64 --push -f src\WebPortal\Portal\Dockerfile -t <docker hub id>/webportal .
 ```
 
 ##### Supportal 
 ```powershell
- docker build -f src\Supportal\Portal\Dockerfile -t <docker hub id>/supportal .
+ docker buildx build --platform linux/amd64 --push -f src\Supportal\Portal\Dockerfile -t <docker hub id>/supportal .
 ```
 
 ##### RabbitMQ
@@ -76,33 +76,33 @@ docker pull rabbitmq
 
 ##### Booking Service 
 ```powershell
-docker build -f src\BookingService\API\Dockerfile -t <docker hub id>/bookingapi .
+docker buildx build --platform linux/amd64 --push -f src\BookingService\API\Dockerfile -t <docker hub id>/bookingapi .
 ```
 
 ##### Billing Service 
 ```powershell
-docker build -f src\BillingService\API\Dockerfile -t <docker hub id>/billingapi .
+docker buildx build --platform linux/amd64 --push -f src\BillingService\API\Dockerfile -t <docker hub id>/billingapi .
 ```
 
 ##### Hotel Service 
 ```powershell
-docker build -f src\HotelService\API\Dockerfile -t <docker hub id>/hotelapi .
+docker buildx build --platform linux/amd64 --push -f src\HotelService\API\Dockerfile -t <docker hub id>/hotelapi .
 ```
 
 ##### Car Rent Service 
 ```powershell
-docker build -f src\CarRentService\API\Dockerfile -t <docker hub id>/carrentapi .
+docker buildx build --platform linux/amd64 --push -f src\CarRentService\API\Dockerfile -t <docker hub id>/carrentapi .
 ```
 
 ##### Airline Service
 ```powershell
-docker build -f src\AirlineService\API\Dockerfile -t <docker hub id>/airlineapi .
+docker buildx build --platform linux/amd64 --push -f src\AirlineService\API\Dockerfile -t <docker hub id>/airlineapi .
 ```
 
 
 
 
-## Run Docker Images
+## Local Run Docker Images
 
 ##### Booking Portal
 ```powershell

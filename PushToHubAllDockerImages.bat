@@ -1,5 +1,5 @@
 REM To use this script you should set your docker hub id. This script work only on windows muchine.
-SET DOCKERHUBID = <DOCKER HUB ID>
+SET DOCKERHUBID=berart
 
 docker push %DOCKERHUBID%/webportal
 
